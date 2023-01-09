@@ -279,6 +279,7 @@ border-radius: 15px;
     margin: 1rem;
     padding: 1rem;
     border-radius: 10px;
+    
 }
 .pristatymo-container-mygtukai .pr-bt-1 {
     background-color: rgb(164, 164, 222);
@@ -289,6 +290,7 @@ border-radius: 15px;
 .pristatymo-container-mygtukai .pr-bt-3 {
     background-color: rgb(221, 210, 149);
 }
+
 .masterContainer .basket-container .apmokejimo-container {
     background-color: rgb(145, 201, 228);
     border-radius: 15px;
@@ -619,23 +621,20 @@ border-radius: 15px;
         flex-wrap: wrap;
         /* justify-content: space-around; */
     }
-    .pristatymo-button1 {
-        background-color: blue;
-        margin: 2rem;
+    .pristatymo-button {
+        margin: 1rem;
         padding: 1rem;
         border-radius: 10px;
+        
     }
-    .pristatymo-button2 {
-        background-color: rgb(44, 158, 84);
-        margin: 2rem;
-        padding: 1rem;
-        border-radius: 10px;
+    .pristatymo-container-mygtukai .pr-bt-1 {
+        background-color: rgb(164, 164, 222);
     }
-    .pristatymo-button3 {
-        background-color: gold;
-        margin: 2rem;
-        padding: 1rem;
-        border-radius: 10px;
+    .pristatymo-container-mygtukai .pr-bt-2 {
+        background-color: rgb(131, 204, 157);
+    }
+    .pristatymo-container-mygtukai .pr-bt-3 {
+        background-color: rgb(221, 210, 149);
     }
     .masterContainer .basket-container .apmokejimo-container {
         background-color: rgb(145, 201, 228);
