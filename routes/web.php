@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\KrepselisController;
 use App\Http\Controllers\PrekesController;
+use App\Http\Controllers\SusisiekiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +60,6 @@ Route::get('/poras', function (){
 Route::get('/krepselis/index', [App\Http\Controllers\KrepselisController::class, 'index']);
 
 Route::post('/skaityk', [PrekesController::class, 'skaityk']);
+
+Route::post('/susisiekite/store', [SusisiekiteController::class, 'store']);
 
