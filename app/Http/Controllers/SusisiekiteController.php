@@ -49,6 +49,7 @@ class SusisiekiteController extends Controller
 
         $su->save();
         return "sekme?";
+        //
     }
     // public function store(susisiekite $request)
     // {
