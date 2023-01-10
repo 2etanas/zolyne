@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
             @section('content')
+            <div class="login-container left-container">
             <div class="susisiekite">
             <form action="/susisiekite/store" method ="POST" class="login-form" name="susisiekimas" id="susisiekimas">
             @csrf    
@@ -23,4 +24,6 @@
 
             </form>
             </div>
+            </div>
+
             @endsection

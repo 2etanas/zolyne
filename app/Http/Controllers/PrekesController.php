@@ -35,9 +35,39 @@ class PrekesController extends Controller
      * @param  \App\Http\Requests\StorePrekesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePrekesRequest $request)
+    public function store(Request $request)
     {
-        //
+        $idprekes = $request->idprekes;
+        $vardasPrekes = $request->vardasPrekes;
+        $aprasymasPrekes = $request->aprasymasPrekes;
+        $kainaPrekes = $request->kainaPrekes;
+        
+        // $nuotraukaPrekes1 = $request->nuotraukaPrekes1;
+        // $nuotraukaPrekes2 = $request->nuotraukaPrekes2;
+        //  $nuotraukaPrekes3 = $request->nuotraukaPrekes3;
+        //  $nuotraukaPrekes4 = $request->nuotraukaPrekes4;
+
+        
+        $ik = new \App\Models\Preke;
+
+        $ik->prekes_id = $idprekes;
+        $ik->pavadinimas = $vardasPrekes;
+        $ik->aprasymas = $aprasymasPrekes;
+        $ik->preke_kaina = $kainaPrekes;
+
+         $ik->foto1 = "labas"; //reikia sutvarkyti ikelima su atskiru folderiu ir pavadinimu. tada perduoti linka gal
+         $ik->foto2 = "labas";
+         $ik->foto3 = "labas";
+         $ik->foto4 = "labas";
+
+
+        $ik->save();
+        return "sekme?";
+
+
+
+
+
     }
 
     /**

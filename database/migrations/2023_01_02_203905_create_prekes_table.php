@@ -15,6 +15,7 @@ class CreatePrekesTable extends Migration
     {
         Schema::create('prekes', function (Blueprint $table) {
             $table->id();
+            $table->string('prekes_id');
             $table->string('pavadinimas');
             $table->string('aprasymas');
             $table->unsignedBigInteger('preke_kaina');

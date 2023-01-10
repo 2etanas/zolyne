@@ -53,6 +53,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/prekes/ikelimas', function () {
+    return view('prekes/prekes_ikelimas');
+});
+
+Route::post('/prekes/store', [PrekesController::class, 'store']);
+
+
 
 Route::get('/poras', function (){
     return view('poras');

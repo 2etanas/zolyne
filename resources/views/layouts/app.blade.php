@@ -86,7 +86,8 @@
             </div>
         </nav>
     <div class="masterContainer @yield('morze')">
-       @yield('content')
+       
+    @yield('content')
         <!-- <div class="login-container prekiuContainer">
         <div id="app">
         
