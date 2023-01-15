@@ -15,6 +15,18 @@ class CreateIkelkPrekesTable extends Migration
     {
         Schema::create('ikelk_prekes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('preke_id');
+            $table->string('preke_pavadinimas');
+            $table->string('preke_aprasymas');
+            $table->unsignedBigInteger('preke_kaina');
+            $table->string('preke_foto1');
+            $table->string('preke_foto2');
+            $table->string('preke_foto3');
+            $table->string('preke_foto4');
+            // $table->string('name');
+            // $table->string('size');
+
+
             $table->timestamps();
         });
     }
