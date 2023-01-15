@@ -24,6 +24,37 @@ $(document).ready(function(){
                 processData: false, // be sito neveikia
                 success:function(response) {
                     console.log(response);
+                    
+                    var tbody = $('.prekes-lentute');
+                    tbody.html(''); // isvalo lentute
+                    var generatedHtml = ''; //tuscias naujo html kintamasis
+                    
+                    var assetLink0 = '<img src="';
+                    var assetLink1 = "url('storage/images/produktai";
+                    var assetLink2 = "/";
+                    var assetLink3 = "/";
+                    var assetLink4 = '" alt="foto1"  style="max-height:200px;width:125px;"></td>';
+
+
+
+                    for (var i = 0; i < response.length; i++){
+                        generatedHtml += '<tr>';
+                        generatedHtml += '<td>'+response[i].preke_id+'</td>';
+                        generatedHtml += '<td>'+response[i].preke_pavadinimas+'</td>';
+                        generatedHtml += '<td>'+response[i].preke_aprasymas+'</td>';
+                        generatedHtml += '<td>'+response[i].preke_kaina+'</td>';
+                
+
+                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto1+assetLink4;
+                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink1+assetLink2+response[i].preke_id+assetLink2+response[i].preke_foto2+') }}" alt="foto1"  style="max-height:200px;width:125px;"></td>';
+                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink1+assetLink2+response[i].preke_id+assetLink2+response[i].preke_foto3+') }}" alt="foto1"  style="max-height:200px;width:125px;"></td>';
+                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink1+assetLink2+response[i].preke_id+assetLink2+response[i].preke_foto4+') }}" alt="foto1"  style="max-height:200px;width:125px;"></td>';
+                        
+                        console.log(assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto1+assetLink4);
+
+                    }
+                    tbody.append(generatedHtml);
+                    tbody.append('<tr><td>Labas</td></tr>');
                 },
                 error:function(response) {
                     console.log(response); // 404 puslapis nerastas

@@ -24,7 +24,7 @@
         <form id="ajaxSearch" data-ajax-form-url = "{{ route('prekes.sarasas.searchAjax') }}">
         @csrf 
         <input id="search" type="text" name="search" class="form-control" placeholder="Paieška">
-        <button id="searchBTN" class="btn btn-success" type="submit">Paieška</button>
+        <button id="searchBTN" class="btn btn-success" type="submit">Paieška neperkraunant puslapio</button>
 
         </form>
         </div>
@@ -49,7 +49,7 @@
                 
                 <th scope="col">Pašalinti</th>
             </tr>
-            <tbody class="students">
+            <tbody class="prekes-lentute">
         @foreach ($ikelk_prekes as $preke)
             <tr >
 
@@ -59,7 +59,7 @@
                 <td class="student_name">{{ $preke->preke_pavadinimas }}</td>
                 <td class="student_surname">{{ $preke->preke_aprasymas }}</td>
                 <td class="student_email" >{{ $preke->preke_kaina }}</td>
-                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></td>
+                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai' . '/' . $preke->preke_id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></td>
