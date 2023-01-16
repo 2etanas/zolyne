@@ -30,26 +30,25 @@ $(document).ready(function(){
                     var generatedHtml = ''; //tuscias naujo html kintamasis
                     
                     var assetLink0 = '<img src="';
-                    var assetLink1 = "url('storage/images/produktai";
-                    var assetLink2 = "/";
+                    var assetLink1 = window.location.origin;
+                    var assetLink2 = "/storage/images/produktai/";
                     var assetLink3 = "/";
                     var assetLink4 = '" alt="foto1"  style="max-height:200px;width:125px;"></td>';
-
-
-
+                    //sukuria lentele kiekvienam
                     for (var i = 0; i < response.length; i++){
                         generatedHtml += '<tr>';
+                        generatedHtml += '<td>'+response[i].id+'</td>';
                         generatedHtml += '<td>'+response[i].preke_id+'</td>';
                         generatedHtml += '<td>'+response[i].preke_pavadinimas+'</td>';
                         generatedHtml += '<td>'+response[i].preke_aprasymas+'</td>';
                         generatedHtml += '<td>'+response[i].preke_kaina+'</td>';
                 
 
-                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto1+assetLink4;
-                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink1+assetLink2+response[i].preke_id+assetLink2+response[i].preke_foto2+') }}" alt="foto1"  style="max-height:200px;width:125px;"></td>';
-                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink1+assetLink2+response[i].preke_id+assetLink2+response[i].preke_foto3+') }}" alt="foto1"  style="max-height:200px;width:125px;"></td>';
-                        generatedHtml += '<td class="basket-nuotrauka">'+assetLink1+assetLink2+response[i].preke_id+assetLink2+response[i].preke_foto4+') }}" alt="foto1"  style="max-height:200px;width:125px;"></td>';
-                        
+                        generatedHtml += '<div><td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto1+assetLink4;
+                        generatedHtml += '<td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto2+assetLink4;
+                        generatedHtml += '</div><div><td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto3+assetLink4;
+                        generatedHtml += '<td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto4+assetLink4;
+                        generatedHtml += '</div>'
                         console.log(assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto1+assetLink4);
 
                     }
@@ -64,5 +63,13 @@ $(document).ready(function(){
             console.log(route);
                 
     });
+       //kažką bandom įrodyti su delete alertu. turbūt neverta.     
+    // var $istrintas = $(document).attr('istrintas-attr').val()
+    // if($istrintas !== undefined){
+    //     console.log('istrintas ');
+    // }else{
+    //         console.log('neistrintas ');
+    //     };
+    
 
 });

@@ -17,7 +17,7 @@ class CreateIkelkPrekesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('preke_id');
             $table->string('preke_pavadinimas');
-            $table->string('preke_aprasymas');
+            $table->text('preke_aprasymas');
             $table->unsignedBigInteger('preke_kaina');
             $table->string('preke_foto1');
             $table->string('preke_foto2');

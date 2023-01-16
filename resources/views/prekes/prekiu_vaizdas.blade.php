@@ -9,14 +9,8 @@
                     <a href="{{ route('prekes.prekiu_sarasas') }}" class="btn btn-danger">Grįžti į visą sąrašą</a>
                 </h3>
             @else
-                <h3>Prekių sąrašas, viso prekių: {{ count($ikelk_prekes) }}</h3>
+                <h3>Prekių sąrašas</h3>
             @endif
-            @if(isset($istrintas))
-                <h3>Produktas ID "{{ $istrintas }} ištrintas!" 
-                    <a href="{{ route('prekes.prekiu_sarasas') }}" class="btn btn-danger" id="testDelete" istrintas-attr="{{ $istrintas }}">Grįžti į visą sąrašą</a>
-                </h3>
-            @endif
-            
         <div class="row">
         <div class="col-md-7">
         <form action="{{ route('prekes.sarasas.search') }}" method = "get">
@@ -69,34 +63,15 @@
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></td>
-                <td class="student_email" >
-                     <form action="{{ route('prekes.sarasas.display') }}" method = "get">
-                    @csrf 
-                    <input type="hidden" name="display" class="form-control" value="{{ $preke->id }}">
-                    <button class="btn btn-success" type="submit">Rodyti</button>
-
-                    </form><br>
-                    <form action="{{ route('prekes.sarasas.prekeShowEdit') }}" method = "get">
-                    @csrf 
-                    <input type="hidden" name="preke-edit" class="form-control" value="{{ $preke->id }}">
-                    <button class="btn btn-warning" type="submit">Redaguoti</button>
-
-                    </form>
-                    <br>
-                    <form action="{{ route('prekes.sarasas.prekeDelete') }}" method = "get">
-                    @csrf 
-                    <input type="hidden" name="preke-delete" class="form-control" value="{{ $preke->id }}">
-                    <button class="btn btn-danger" type="submit" >Ištrinti</button>
-
-                    </form></td>
-                <td></td>
-                    
-
-                    
-                    
-                    
-
                 
+                <td>
+                    
+
+                    
+                    
+                    
+
+                </td>
             </tr>
         @endforeach
     </tbody>
