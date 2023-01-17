@@ -139,7 +139,7 @@ class IkelkPrekeController extends Controller
      public function update(Request $request, IkelkPreke $preke)
     {
         
-        // $preke->id = $request->db_id;
+        $preke->id = $request->db_id;
         $preke->preke_id = $request->idprekes;
         $preke->preke_pavadinimas = $request->vardasPrekes;
         $preke->preke_aprasymas = $request->aprasymasPrekes;
@@ -150,26 +150,30 @@ class IkelkPrekeController extends Controller
         {
             $request->file('preke_foto1')->storeAs("public/images/produktai/$preke->id", 'pirmafoto'.".".$request->file('preke_foto1')->getClientOriginalExtension());    
             $preke->preke_foto1 = 'pirmafoto'.".".$request->file('preke_foto1')->getClientOriginalExtension();
+        }else{ $preke->preke_foto1 = "$preke->preke_foto1";
         };
         if($request->hasFile('preke_foto2'))
         {
             $request->file('preke_foto2')->storeAs("public/images/produktai/$preke->id", 'antrafoto'.".".$request->file('preke_foto2')->getClientOriginalExtension());
 
             $preke->preke_foto2 = 'antrafoto'.".".$request->file('preke_foto2')->getClientOriginalExtension();
+        }else{ $preke->preke_foto2 = "$preke->preke_foto2";
         };
         if($request->hasFile('preke_foto3'))
         {
             $preke->preke_foto3 = 'treciafoto'.".".$request->file('preke_foto3')->getClientOriginalExtension();
             $request->file('preke_foto3')->storeAs("public/images/produktai/$preke->id", 'treciafoto'.".".$request->file('preke_foto3')->getClientOriginalExtension());
+        }else{ $preke->preke_foto3 = "$preke->preke_foto3";
         };
         if($request->hasFile('preke_foto4'))
         {
             $preke->preke_foto4 = 'ketvirtafoto'.".".$request->file('preke_foto4')->getClientOriginalExtension();
             $request->file('preke_foto4')->storeAs("public/images/produktai/$preke->id", 'ketvirtafoto'.".".$request->file('preke_foto4')->getClientOriginalExtension());
+        }else{ $preke->preke_foto4 = "$preke->preke_foto4";
         };
       
 
-        $preke->update();
+        $preke->save();
         return redirect('prekes/sarasas');
 
 
