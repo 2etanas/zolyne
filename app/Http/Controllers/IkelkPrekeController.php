@@ -51,6 +51,7 @@ class IkelkPrekeController extends Controller
      */
     public function store(Request $request)
     {   
+        
         $preke_id = $request->idprekes;
         $preke_pavadinimas = $request->vardasPrekes;
         $preke_aprasymas = $request->aprasymasPrekes;
@@ -62,24 +63,32 @@ class IkelkPrekeController extends Controller
         $preke_foto3 = 'treciafoto'.".".$request->file('preke_foto3')->getClientOriginalExtension();
         $preke_foto4 = 'ketvirtafoto'.".".$request->file('preke_foto4')->getClientOriginalExtension();
         
-        $request->file('preke_foto1')->storeAs("public/images/produktai/$preke_id", $preke_foto1);
-        $request->file('preke_foto2')->storeAs("public/images/produktai/$preke_id", $preke_foto2);
-        $request->file('preke_foto3')->storeAs("public/images/produktai/$preke_id", $preke_foto3);
-        $request->file('preke_foto4')->storeAs("public/images/produktai/$preke_id", $preke_foto4);
+        $temp1 = $request->file('preke_foto1');
+        $temp2 = $request->file('preke_foto2');
+        $temp3 = $request->file('preke_foto3');
+        $temp4 = $request->file('preke_foto4');
+
+
 
         $preke = new IkelkPreke();
+
         $preke->preke_id = $preke_id;
         $preke->preke_pavadinimas = $preke_pavadinimas;
         $preke->preke_aprasymas = $preke_aprasymas;
         $preke->preke_kaina = $preke_kaina;
 
+       
         $preke->preke_foto1 = $preke_foto1;
         $preke->preke_foto2 = $preke_foto2;
         $preke->preke_foto3 = $preke_foto3;
         $preke->preke_foto4 = $preke_foto4;
 
         $preke->save();
-        
+
+        $temp1->storeAs("public/images/produktai/$preke->id/", $preke_foto1);
+        $temp2->storeAs("public/images/produktai/$preke->id/", $preke_foto2);
+        $temp3->storeAs("public/images/produktai/$preke->id/", $preke_foto3);
+        $temp4->storeAs("public/images/produktai/$preke->id/", $preke_foto4);
 
 
         return redirect('prekes/ikelimas');
@@ -119,9 +128,18 @@ class IkelkPrekeController extends Controller
      * @param  \App\Models\IkelkPreke  $ikelkPreke
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, IkelkPreke $preke)
+    public function neupdate(Request $request, IkelkPreke $preke)
+    {
+
+        IkelkPreke::find($preke)->duplicates(request()->all());
+        // $preke->save();
+        return redirect('prekes/sarasas');
+
+    }  
+     public function update(Request $request, IkelkPreke $preke)
     {
         
+        // $preke->id = $request->db_id;
         $preke->preke_id = $request->idprekes;
         $preke->preke_pavadinimas = $request->vardasPrekes;
         $preke->preke_aprasymas = $request->aprasymasPrekes;
@@ -130,37 +148,32 @@ class IkelkPrekeController extends Controller
         // $preke->preke_foto1 = $request->hasFile('preke_foto1') ? $image_name : $preke->preke_foto1;
         if($request->hasFile('preke_foto1'))
         {
-            $request->file('preke_foto1')->storeAs("public/images/produktai/$preke->preke_id", 'pirmafoto'.".".$request->file('preke_foto1')->getClientOriginalExtension());    
+            $request->file('preke_foto1')->storeAs("public/images/produktai/$preke->id", 'pirmafoto'.".".$request->file('preke_foto1')->getClientOriginalExtension());    
             $preke->preke_foto1 = 'pirmafoto'.".".$request->file('preke_foto1')->getClientOriginalExtension();
-        }else{
-            $preke->preke_foto1 = "$preke->preke_foto1";
         };
         if($request->hasFile('preke_foto2'))
         {
-            $request->file('preke_foto2')->storeAs("public/images/produktai/$preke->preke_id", 'antrafoto'.".".$request->file('preke_foto2')->getClientOriginalExtension());
+            $request->file('preke_foto2')->storeAs("public/images/produktai/$preke->id", 'antrafoto'.".".$request->file('preke_foto2')->getClientOriginalExtension());
 
             $preke->preke_foto2 = 'antrafoto'.".".$request->file('preke_foto2')->getClientOriginalExtension();
-        }else{$preke->preke_foto2 = "$preke->preke_foto2";
         };
         if($request->hasFile('preke_foto3'))
         {
             $preke->preke_foto3 = 'treciafoto'.".".$request->file('preke_foto3')->getClientOriginalExtension();
-            $request->file('preke_foto3')->storeAs("public/images/produktai/$preke->preke_id", 'treciafoto'.".".$request->file('preke_foto3')->getClientOriginalExtension());
-        }else{ $preke->preke_foto3 = "$preke->preke_foto3";
+            $request->file('preke_foto3')->storeAs("public/images/produktai/$preke->id", 'treciafoto'.".".$request->file('preke_foto3')->getClientOriginalExtension());
         };
         if($request->hasFile('preke_foto4'))
         {
             $preke->preke_foto4 = 'ketvirtafoto'.".".$request->file('preke_foto4')->getClientOriginalExtension();
-            $request->file('preke_foto4')->storeAs("public/images/produktai/$preke->preke_id", 'ketvirtafoto'.".".$request->file('preke_foto4')->getClientOriginalExtension());
-        }else{ $preke->preke_foto4 = "$preke->preke_foto4";
+            $request->file('preke_foto4')->storeAs("public/images/produktai/$preke->id", 'ketvirtafoto'.".".$request->file('preke_foto4')->getClientOriginalExtension());
         };
       
 
-        $preke->save();
-        
-
-
+        $preke->update();
         return redirect('prekes/sarasas');
+
+
+        // return redirect('prekes/sarasas');
  
     }
 

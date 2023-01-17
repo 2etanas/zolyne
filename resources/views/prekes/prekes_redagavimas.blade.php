@@ -11,6 +11,8 @@
             <h3><a href="/prekes/sarasas">Esamos prekės</a></h3>
                 <br>
                 <div class="susisiekite-forma">
+                <input type="number" value="{{ $preke->id }}" id="db_id" name = "db_id">
+
                 <label for="name">Prekės ID</label>
                 <input type="number" value="{{ $preke->preke_id }}" id="idprekes" name = "idprekes">
                 <br><br>
@@ -37,7 +39,7 @@
                             <label for="name">Prekės nuotrauka 1</label>
                             <input type="file" id="preke_foto1" name = "preke_foto1" value="{{ $preke->preke_foto1 }}">
                         </div>
-                    <div><img src="{{ asset('storage/images/produktai' . '/' . $preke->preke_id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></div>
+                    <div><img src="{{ asset('storage/images/produktai' . '/' . $preke->id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></div>
                 </div>
                 <br><br>
                 <div class ="d-flex justify-content-around">
@@ -45,7 +47,7 @@
                             <label for="name">Prekės nuotrauka 2</label>
                             <input type="file" id="preke_foto2" name = "preke_foto2" value="{{ $preke->preke_foto2 }}">
                         </div>
-                    <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></div>
+                    <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></div>
                 </div>
                 <br><br>
                 <div class ="d-flex justify-content-around">
@@ -53,7 +55,7 @@
                             <label for="name">Prekės nuotrauka 3</label>
                             <input type="file" id="preke_foto3" name = "preke_foto3" value="{{ $preke->preke_foto3 }}">
                         </div>
-                    <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></div>
+                    <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></div>
                 </div>
                 <br><br>
 
@@ -62,11 +64,11 @@
                             <label for="name">Prekės nuotrauka 4</label>
                             <input type="file" id="preke_foto4" name = "preke_foto4" value="{{ $preke->preke_foto4 }}">
                         </div>
-                    <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></div>
+                    <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></div>
                 </div>
                 <br><br>
                 
-                <button type="submit" name="UploadEdit" value="atnaujinti">Atnaujinti!</button>
+                <button type="submit">Atnaujinti!</button>
                 </div>
 
             </form>

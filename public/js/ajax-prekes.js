@@ -44,10 +44,10 @@ $(document).ready(function(){
                         generatedHtml += '<td>'+response[i].preke_kaina+'</td>';
                 
 
-                        generatedHtml += '<div><td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto1+assetLink4;
-                        generatedHtml += '<td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto2+assetLink4;
-                        generatedHtml += '</div><div><td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto3+assetLink4;
-                        generatedHtml += '<td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto4+assetLink4;
+                        generatedHtml += '<div><td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].id+assetLink3+response[i].preke_foto1+assetLink4;
+                        generatedHtml += '<td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].id+assetLink3+response[i].preke_foto2+assetLink4;
+                        generatedHtml += '</div><div><td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].id+assetLink3+response[i].preke_foto3+assetLink4;
+                        generatedHtml += '<td class="basket-nuotraukas">'+assetLink0+assetLink1+assetLink2+response[i].id+assetLink3+response[i].preke_foto4+assetLink4;
                         generatedHtml += '</div>'
                         console.log(assetLink0+assetLink1+assetLink2+response[i].preke_id+assetLink3+response[i].preke_foto1+assetLink4);
 
