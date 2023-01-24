@@ -11,7 +11,7 @@
             <h3><a href="/prekes/sarasas">Esamos prekės</a></h3>
                 <br>
                 <div class="susisiekite-forma">
-                <input type="number" value="{{ $preke->id }}" id="db_id" name = "db_id">
+                <input type="hidden" value="{{ $preke->id }}" id="db_id" name = "db_id">
 
                 <label for="name">Prekės ID</label>
                 <input type="number" value="{{ $preke->preke_id }}" id="idprekes" name = "idprekes">
@@ -37,7 +37,9 @@
                  <div class ="d-flex justify-content-around">
                         <div>
                             <label for="name">Prekės nuotrauka 1</label>
-                            <input type="file" id="preke_foto1" name = "preke_foto1" value="{{ $preke->preke_foto1 }}">
+                            <input type="file" id="preke_foto1" name = "preke_foto1" value="{{ $preke->preke_foto1 }}" accept="image/*" onchange="loadFile(event)">
+                    
+                            <p><img id="output" width="200"/></p>
                         </div>
                     <div><img src="{{ asset('storage/images/produktai' . '/' . $preke->id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></div>
                 </div>
@@ -45,7 +47,8 @@
                 <div class ="d-flex justify-content-around">
                         <div>
                             <label for="name">Prekės nuotrauka 2</label>
-                            <input type="file" id="preke_foto2" name = "preke_foto2" value="{{ $preke->preke_foto2 }}">
+                            <input type="file" id="preke_foto2" name = "preke_foto2" value="{{ $preke->preke_foto2 }}" accept="image/*" onchange="loadFile2(event)">
+                            <p><img id="output2" width="200"/></p>
                         </div>
                     <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></div>
                 </div>
@@ -53,7 +56,8 @@
                 <div class ="d-flex justify-content-around">
                         <div>
                             <label for="name">Prekės nuotrauka 3</label>
-                            <input type="file" id="preke_foto3" name = "preke_foto3" value="{{ $preke->preke_foto3 }}">
+                            <input type="file" id="preke_foto3" name = "preke_foto3" value="{{ $preke->preke_foto3 }}" accept="image/*" onchange="loadFile3(event)">
+                            <p><img id="output3" width="200"/></p>
                         </div>
                     <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></div>
                 </div>
@@ -62,7 +66,8 @@
                 <div class ="d-flex justify-content-around">
                         <div>
                             <label for="name">Prekės nuotrauka 4</label>
-                            <input type="file" id="preke_foto4" name = "preke_foto4" value="{{ $preke->preke_foto4 }}">
+                            <input type="file" id="preke_foto4" name = "preke_foto4" value="{{ $preke->preke_foto4 }}" accept="image/*" onchange="loadFile4(event)">
+                            <p><img id="output4" width="200"/></p>
                         </div>
                     <div><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></div>
                 </div>
@@ -74,6 +79,24 @@
             </form>
             </div>
             </div>
-
+       
+      <script>
+            var loadFile = function(event) {
+                var image = document.getElementById('output');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+            var loadFile2 = function(event) {
+                var image = document.getElementById('output2');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+            var loadFile3 = function(event) {
+                var image = document.getElementById('output3');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+            var loadFile4 = function(event) {
+                var image = document.getElementById('output4');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+      </script>
             @endforeach
             @endsection

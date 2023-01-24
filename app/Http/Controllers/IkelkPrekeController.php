@@ -128,17 +128,8 @@ class IkelkPrekeController extends Controller
      * @param  \App\Models\IkelkPreke  $ikelkPreke
      * @return \Illuminate\Http\Response
      */
-    public function neupdate(Request $request, IkelkPreke $preke)
-    {
-
-        IkelkPreke::find($preke)->duplicates(request()->all());
-        // $preke->save();
-        return redirect('prekes/sarasas');
-
-    }  
      public function update(Request $request, IkelkPreke $preke)
     {
-        
         $preke->id = $request->db_id;
         $preke->preke_id = $request->idprekes;
         $preke->preke_pavadinimas = $request->vardasPrekes;

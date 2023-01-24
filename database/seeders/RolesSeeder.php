@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
-class UserRolesSeeder extends Seeder
+class RolesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,7 @@ class UserRolesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Role::create(['name' =>'SuperSuperAdmin']);
+        Role::create(['name' =>'logedUser']); 
     }
 }

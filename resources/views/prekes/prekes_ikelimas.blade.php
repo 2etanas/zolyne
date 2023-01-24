@@ -23,17 +23,22 @@
                 <!-- reikia sutvarkyti ikelima su atskiru folderiu ir pavadinimu. tada perduoti linka gal -->
                  <br><br>
                 <label for="name">Prekės nuotrauka 1</label>
-                <input type="file" id="preke_foto1" name = "preke_foto1">
+                <input type="file" id="preke_foto1" name = "preke_foto1" accept="image/*" onchange="loadFile(event)" style="color:green">
+                    
+                <p><img id="output" width="200"/></p>
                 <br><br>
                 <label for="name">Prekės nuotrauka 2</label>
-                <input type="file" id="preke_foto2" name = "preke_foto2">
+                <input type="file" id="preke_foto2" name = "preke_foto2" accept="image/*" onchange="loadFile2(event)">
+                <p><img id="output2" width="200"/></p>
                 <br><br>
                 <label for="name">Prekės nuotrauka 3</label>
-                <input type="file" id="preke_foto3" name = "preke_foto3">
+                <input type="file" id="preke_foto3" name = "preke_foto3" accept="image/*" onchange="loadFile3(event)">
+                <p><img id="output3" width="200"/></p>
                 <br><br>
             
                 <label for="name">Prekės nuotrauka 4</label>
-                <input type="file" id="preke_foto4" name = "preke_foto4">
+                <input type="file" id="preke_foto4" name = "preke_foto4" accept="image/*" onchange="loadFile4(event)">
+                <p><img id="output4" width="200"/></p>
                 <br><br>
                 
                 <button type="submit" name="Upload" value="prideti">Pridėti produktą!</button>
@@ -42,6 +47,23 @@
             </form>
             </div>
             </div>
-
+    <script>
+            var loadFile = function(event) {
+                var image = document.getElementById('output');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+            var loadFile2 = function(event) {
+                var image = document.getElementById('output2');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+            var loadFile3 = function(event) {
+                var image = document.getElementById('output3');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+            var loadFile4 = function(event) {
+                var image = document.getElementById('output4');
+                image.src=URL.createObjectURL(event.target.files[0]);
+                };
+    </script>
 
             @endsection

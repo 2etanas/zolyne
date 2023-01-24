@@ -46,6 +46,15 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/krepselis">Krepšelis</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/prekes/ikelimas">Prekės</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/permissions">Permissions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/roles">Rolės</a>
+                                </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

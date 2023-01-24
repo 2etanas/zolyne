@@ -4,6 +4,7 @@
     <div class="login-container left-container">
     <div class="susisiekite">
     <div class="prekiu-containter">
+        <h4><a href="{{ route('prekes.ikelimas') }}" class ="btn btn-info" style="width:100%">Įkelti naują prekę</a></h4>
             @if(isset($search))
                 <h3>Prekės pagal paiešką "{{ $search }}" 
                     <a href="{{ route('prekes.prekiu_sarasas') }}" class="btn btn-danger">Grįžti į visą sąrašą</a>
