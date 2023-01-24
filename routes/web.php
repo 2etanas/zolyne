@@ -11,6 +11,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +26,12 @@ use App\Http\Controllers\RoleController;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/', function () {
-    return view('zolyne');
-});
+// Route::get('/', function () {
+//     return view('zolyne', [IkelkPrekeController::class, 'index'])->name('prekes.prekiu_sarasas');
+// });
+
+Route::get('/', [PrekesController::class, 'index']);
+
 
 
 Route::get('/krepselis', function () {

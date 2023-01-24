@@ -6,6 +6,10 @@ use App\Models\Prekes;
 use App\Http\Requests\StorePrekesRequest;
 use App\Http\Requests\UpdatePrekesRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\IkelkPrekeController;
+use App\Models\IkelkPreke;
+
+use Illuminate\Support\Facades\Storage;
 
 class PrekesController extends Controller
 {
@@ -16,7 +20,8 @@ class PrekesController extends Controller
      */
     public function index()
     {
-        //
+        $prekes = IkelkPreke::all();
+            return view('zolyne', ['ikelk_prekes' => $prekes]);
     }
 
     /**
