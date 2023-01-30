@@ -18,7 +18,7 @@ class CreateKrepselisTable extends Migration
             $table->unsignedBigInteger('pirkimo_id'); //neunikalus, vieno apsipirkimo/rinkimosi metu priskiriamas vienas, zmogus ateina, susikuria cookies su pirkimo_id, tada pridejus preke i krepseli irasomas ID
            
             $table->unsignedBigInteger('vartotojas_id');
-            $table->foreign('vartotojas_id')->references('id')->on('vartotojais');
+            $table->foreign('vartotojas_id')->references('id')->on('users');
            
             $table->unsignedBigInteger('preke_id');
             $table->foreign('preke_id')->references('id')->on('prekes');

@@ -1,10 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+
+use Closure;
+use App\User;
+use App\Usergroups;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\krepselis;
 use App\Http\Requests\StorekrepselisRequest;
 use App\Http\Requests\UpdatekrepselisRequest;
+use App\Http\Controllers\IkelkPrekeController;
+use App\Models\IkelkPreke;
+
 
 class KrepselisController extends Controller
 {
@@ -24,9 +34,36 @@ class KrepselisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $prekes = IkelkPreke::all();
+        $kliento_id = 1;
+        if (Auth::user()) {   // Check is user logged in
+            $kliento_id= Auth::user()->id;
+            return ;
+        } else {
+            return $kliento_id = 999;
+        } 
+        $preke_id = $request->preke_id;
+        $pirkimo_id = rand(11111,99999);
+
+        $apmoketa = 2;
+        $prekes_kaina = $request->prekes_kaina;
+        $preke_vnt = 1;
+        $semi_total = $prekes_kaina * $preke_vnt;
+
+        $krepselis = new krepselis();
+
+        $krepselis->pirkimo_id = $pirkimo_id;
+        $krepselis->preke_id = $preke_id;
+        $krepselis->preke_kaina = $prekes_kaina;
+        $krepselis->preke_vienetai = $preke_vnt;
+        $krepselis->preke_total = $semi_total;
+        $krepselis->vartotojas_id = $kliento_id;
+        $krepselis->ar_apmoketa = $apmoketa;
+
+        $krepselis->save();
+        return redirect('/');
     }
 
     /**
@@ -35,9 +72,9 @@ class KrepselisController extends Controller
      * @param  \App\Http\Requests\StorekrepselisRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorekrepselisRequest $request)
+    public function store(Request $request)
     {
-        //
+        
     }
 
     /**

@@ -104,12 +104,9 @@ Route::post('/prekes/store', [PrekesController::class, 'store']);
 
 
 
-Route::get('/poras', function (){
-    return view('poras');
-});
-Route::get('/krepselis/index', [App\Http\Controllers\KrepselisController::class, 'index']);
 
-Route::post('/skaityk', [PrekesController::class, 'skaityk']);
+
+
 
 Route::post('/susisiekite/store', [SusisiekiteController::class, 'store']);
 
@@ -141,4 +138,11 @@ Route::prefix('roles')->group(function(){
     Route::post('/update/{id}', [RoleController::class, 'update'])->name('roles.update')->middleware('auth');
     Route::post('/destroy/{id}', [RoleController::class, 'destroy'])->name('roles.destroy')->middleware('auth');
     Route::get('/show/{id}', [RoleController::class, 'show'])->name('roles.show')->middleware('auth');
+});
+
+
+Route::prefix('krepselis')->group(function(){
+    Route::get('/index', [KrepselisController::class, 'index'])->name('krepselis.index');
+    Route::post('/prideti', [KrepselisController::class, 'create'])->name('krepselis.prideti');
+
 });

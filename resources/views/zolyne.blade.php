@@ -33,13 +33,14 @@
                     <input type="hidden" name="display" class="form-control" value="{{ $preke->id }}">
                     <button class="btn btn-success" type="submit">Rodyti</button>
 
-                    </form>
-                    <form action="{{ route('prekes.sarasas.display') }}" method = "get">
+                </form>
+                <form action="{{ route('krepselis.prideti') }}" method = "post">
                     @csrf 
-                    <input type="hidden" name="display" class="form-control" value="{{ $preke->id }}">
+                    <input type="hidden" name="prekes_kaina" class="form-control" value="{{ $preke->preke_kaina }}">
+                    <input type="hidden" name="preke_id" class="form-control" value="{{ $preke->id }}">
                     <button class="btn btn-warning" type="submit">Pridėti į užsakymą</button>
 
-                    </form>
+                </form>
                 </div>
                 <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
             </div>
@@ -48,125 +49,7 @@
 
         </div>
 </div>
-            <!-- <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                    Šalto spaudimo kanappių aliejus
-                    <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>            
-            <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                    Šalto spaudimo kanappių aliejus
-                    <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>    
 
-             <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                    Šalto spaudimo kanappių aliejus
-                    <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>           
-            
-            <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                Šalto spaudimo kanappių aliejus
-                   <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>           
-             <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX" height="50px">
-                 Šalto spaudimo kanappių aliejus 
-                   <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>            
-            <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                    Šalto spaudimo kanappių aliejus
-                    <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>             
-            <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                    Šalto spaudimo kanappių aliejus
-                    <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>             
-            <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                    Šalto spaudimo kanappių aliejus
-                    <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>            -->
-            <!-- <div class="preke">
-                <img src="storephoto\hempseedoil250.JPG" alt="prekesphoto" width="fit-content" height="fit-content">
-                <div >
-                <div class="prekesID prekesAprasymas" name="prekeNRX">ID: AL01</div>
-                <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">Kanapiu aliejus 250ml</div>
-                <div class="prekesKaina prekesAprasymas" name="prekeNRX">Kaina: x Eur<?php ?></div>
-                <div class="prekesAprasymas" name="prekeNRX">
-                    Šalto spaudimo kanappių aliejus
-                    <a href="#">Platesnis aprašymas</a>
-                </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
-            </div>
-            </div>  -->
 
  
        

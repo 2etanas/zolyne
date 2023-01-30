@@ -6,7 +6,7 @@ use App\Models\IkelkPreke;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\User;
 
 class IkelkPrekeController extends Controller
 {
@@ -19,7 +19,8 @@ class IkelkPrekeController extends Controller
     {
         {
             $prekes = IkelkPreke::all();
-            return view('prekes/prekiu_sarasas', ['ikelk_prekes' => $prekes]);
+            $users = User::all();
+            return view('prekes/prekiu_sarasas', ['ikelk_prekes' => $prekes, 'users' => $users]);
         }
     }
 
@@ -30,7 +31,6 @@ class IkelkPrekeController extends Controller
      */
     public function create()
     {
-       return Storage::disk('local')->put('example2221.txt', 'Labulis gulugis');
     }
 
     public function uploadFile(Request $request) {

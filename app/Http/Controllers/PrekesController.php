@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePrekesRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\IkelkPrekeController;
 use App\Models\IkelkPreke;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -21,6 +22,7 @@ class PrekesController extends Controller
     public function index()
     {
         $prekes = IkelkPreke::all();
+        
             return view('zolyne', ['ikelk_prekes' => $prekes]);
     }
 
@@ -120,16 +122,4 @@ class PrekesController extends Controller
         //
     }
 
-
-    public function skaityk(Request $request)
-    {
-        $tekstas = $request->input('tekstas');
-
-        $ats = $tekstas + $tekstas;
-
-        $un = $tekstas++;
-
-        return redirect('/poras')->with('info',"dalykas $tekstas, $ats  $un");
-
-    }
 }
