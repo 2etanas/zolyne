@@ -143,6 +143,7 @@ Route::prefix('roles')->group(function(){
 
 Route::prefix('krepselis')->group(function(){
     Route::get('/index', [KrepselisController::class, 'index'])->name('krepselis.index');
-    Route::post('/prideti', [KrepselisController::class, 'create'])->name('krepselis.prideti');
+    Route::post('/prideti', [KrepselisController::class, 'create'])->name('krepselis.prideti')->middleware('auth');;
+    Route::post('/pridetik', [KrepselisController::class, 'store'])->name('krepselis.pridetik')->middleware('auth');;
 
 });

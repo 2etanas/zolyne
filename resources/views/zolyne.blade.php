@@ -34,7 +34,7 @@
                     <button class="btn btn-success" type="submit">Rodyti</button>
 
                 </form>
-                <form action="{{ route('krepselis.prideti') }}" method = "post">
+                <form action="{{ route('krepselis.pridetik') }}" method = "post">
                     @csrf 
                     <input type="hidden" name="prekes_kaina" class="form-control" value="{{ $preke->preke_kaina }}">
                     <input type="hidden" name="preke_id" class="form-control" value="{{ $preke->id }}">
@@ -42,7 +42,7 @@
 
                 </form>
                 </div>
-                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėti į užsakymą</a></div>
+                <div class="pridetiUzsakyma prekesAprasymas"><a href="#">Pridėt</a></div>
             </div>
             </div> 
     @endforeach

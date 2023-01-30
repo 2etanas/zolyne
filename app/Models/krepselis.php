@@ -15,4 +15,14 @@ class krepselis extends Model
     public function krepselisPrekesKaina(){
         $this->belongsTo(preke::class, 'preke_kaina', 'preke_kaina');
     }
+    protected $fillable = [
+        'id',
+        'pirkimo_id',
+        'vartotojas_id',
+        'preke_id',
+        'preke_kaina',
+        'preke_vienetai',
+        'preke_total',
+        'ar_apmoketa',
+    ];
 }

@@ -18,6 +18,7 @@ use App\Models\IkelkPreke;
 
 class KrepselisController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -34,19 +35,25 @@ class KrepselisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
+        $krepselis = krepselis::all();
+        $prekes = IkelkPreke::all();
+        return view('/', ['krepselis' => $krepselis, 'ikelk_prekes' => $prekes]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StorekrepselisRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    { 
         $prekes = IkelkPreke::all();
         $kliento_id = 1;
-        if (Auth::user()) {   // Check is user logged in
-            $kliento_id= Auth::user()->id;
-            return ;
-        } else {
-            return $kliento_id = 999;
-        } 
         $preke_id = $request->preke_id;
         $pirkimo_id = rand(11111,99999);
-
         $apmoketa = 2;
         $prekes_kaina = $request->prekes_kaina;
         $preke_vnt = 1;
@@ -59,21 +66,20 @@ class KrepselisController extends Controller
         $krepselis->preke_kaina = $prekes_kaina;
         $krepselis->preke_vienetai = $preke_vnt;
         $krepselis->preke_total = $semi_total;
-        $krepselis->vartotojas_id = $kliento_id;
         $krepselis->ar_apmoketa = $apmoketa;
 
-        $krepselis->save();
-        return redirect('/');
-    }
+        if (Auth::user()) {   // Check is user logged in
+            $kliento_id= Auth::user()->id;    
+            $krepselis->vartotojas_id = $kliento_id;
+            $krepselis->save();
+        return view('zolyne', ['ikelk_prekes' => $prekes]);
+        } else {
+            $kliento_id = 999;   
+            $krepselis->vartotojas_id = $kliento_id;
+            $krepselis->save();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorekrepselisRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+            return view('zolyne', ['ikelk_prekes' => $prekes]);
+        } 
         
     }
 

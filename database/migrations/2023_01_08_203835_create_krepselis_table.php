@@ -21,7 +21,7 @@ class CreateKrepselisTable extends Migration
             $table->foreign('vartotojas_id')->references('id')->on('users');
            
             $table->unsignedBigInteger('preke_id');
-            $table->foreign('preke_id')->references('id')->on('prekes');
+            $table->foreign('preke_id')->references('id')->on('ikelk_prekes');
             $table->unsignedBigInteger('preke_kaina');
             // $table->foreign('preke_kaina')->references('preke_kaina')->on('prekes');
             $table->unsignedBigInteger('preke_vienetai');
