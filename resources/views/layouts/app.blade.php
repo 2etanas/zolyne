@@ -87,7 +87,10 @@
                                 </div>
                             </li>
                         @endguest
-                        <li class="nav-item">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/vartotojas">Vartotojas</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="/susisiekite">Susisiekite</a>
                                 </li>
                     </ul>

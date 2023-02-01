@@ -15,18 +15,19 @@ class CreateVartotojaisTable extends Migration
     {
         Schema::create('vartotojais', function (Blueprint $table) {
             $table->id();
-            $table->string('Username');
-            $table->string('Vardas');
-            $table->string('Pavarde');
-            $table->string('Gatvė');
-            $table->string('NamoNr');
-            $table->string('ButoNr');
-            $table->string('Šalis');
-            $table->string('PaštoKodas');
-            $table->string('TelNumeris');
-            $table->integer('teisiuID');
-            
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('vardas');
+            $table->string('pavarde');
+            $table->string('gatve');
+            $table->string('namo_nr');
+            $table->string('buto_nr');
+            $table->string('salis');
+            $table->string('pasto_kodas');
+            $table->string('tel_numeris');
+            $table->text('komentaras');           
             $table->timestamps();
+
         });
     }
 

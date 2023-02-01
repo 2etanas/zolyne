@@ -9,6 +9,8 @@ use App\Http\Controllers\IkelkPrekeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\VartotojaiController;
+
 
 
 
@@ -50,9 +52,9 @@ Route::get('/klientai', function () {
     return view('klientai');
 });
 
-Route::get('/vartotojai', function () {
-    return view('vartotojai');
-});
+
+Route::get('/vartotojas', [VartotojaiController::class, 'index'])->name('vartotojai.vartotojai');
+
 
 
 Route::get('/login/create', [ClientController::class, 'create']);
