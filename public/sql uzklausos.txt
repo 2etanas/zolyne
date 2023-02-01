@@ -1,0 +1,2 @@
+lenteles queerry krepselio:
+select krepselis.id as krepselis_id, vartotojas_id, krepselis.preke_id, preke_vienetai, ar_apmoketa, ikelk_prekes.id as preke_ikelk_id, ikelk_prekes.preke_pavadinimas, ikelk_prekes.preke_aprasymas, ikelk_prekes.preke_kaina as tikra_preke_kaina, ikelk_prekes.preke_foto1, ikelk_prekes.preke_foto2, ikelk_prekes.preke_foto3, ikelk_prekes.preke_foto4 FROM `krepselis` left join ikelk_prekes on krepselis.preke_id = ikelk_prekes.id WHERE krepselis.vartotojas_id = 5;

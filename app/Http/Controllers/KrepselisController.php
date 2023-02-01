@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 use Closure;
 use App\User;
@@ -25,9 +25,32 @@ class KrepselisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $labas = 12;
-        return view('krepselis', ['labukas'=>$labas]);
+    {   
+        if (Auth::user()) {   // Check is user logged in
+            $kliento_id= Auth::user()->id;
+         
+            $userBasket = DB::table('krepselis')
+            ->select(DB::raw('krepselis.id as krepselis_id, vartotojas_id, krepselis.preke_id, preke_vienetai, ar_apmoketa, ikelk_prekes.id as preke_ikelk_id, ikelk_prekes.preke_pavadinimas, preke_vienetai, preke_total, ikelk_prekes.preke_aprasymas, ikelk_prekes.preke_kaina as tikra_preke_kaina, ikelk_prekes.preke_foto1, ikelk_prekes.preke_foto2, ikelk_prekes.preke_foto3, ikelk_prekes.preke_foto4'))
+            ->leftJoin('ikelk_prekes', 'krepselis.preke_id', '=', 'ikelk_prekes.id')
+            ->where('vartotojas_id', '=', "$kliento_id")
+            ->where('ar_apmoketa', '=', '2')
+            ->get();
+
+            $grandTotal = DB::table('krepselis')
+            ->where('vartotojas_id', '=', "$kliento_id")
+            ->where('ar_apmoketa', '=', '2')
+            ->sum('preke_total');
+        
+
+
+
+        return view('krepselis', ['krepselis'=>$userBasket, 'kliento_id' =>$kliento_id, 'grand_total' => $grandTotal]);
+        } else {
+            $userBasket = 12;
+        return view('krepselis', ['krepselis'=>$userBasket]);
+
+        }
+
     }
 
     /**
@@ -114,7 +137,24 @@ class KrepselisController extends Controller
      */
     public function update(UpdatekrepselisRequest $request, krepselis $krepselis)
     {
-        //
+        $prideti =0;
+        $atimti = 0;
+        $krepselis = krepselis::find($request->id);
+
+        $prideti = $request->aukstyn;
+        $atimti = $request->zemyn;
+        $krepselis->preke_vienetai = $krepselis->preke_vienetai+$prideti +$atimti;
+        $krepselis->preke_total = $krepselis->preke_kaina * $krepselis->preke_vienetai;
+        $krepselis->save();
+        if ($krepselis->preke_vienetai == 0)
+        {
+            $krepselis->delete();
+            return redirect('krepselis'); 
+        }
+        else
+        {
+            return redirect('krepselis'); 
+        }
     }
 
     /**
@@ -123,8 +163,10 @@ class KrepselisController extends Controller
      * @param  \App\Models\krepselis  $krepselis
      * @return \Illuminate\Http\Response
      */
-    public function destroy(krepselis $krepselis)
+    public function destroy($id)
     {
-        //
+        $krepselioPreke = krepselis::find($id);
+        $krepselioPreke->delete();
+        return redirect()->route('krepselis');
     }
 }

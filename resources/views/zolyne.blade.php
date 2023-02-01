@@ -34,7 +34,7 @@
                     <button class="btn btn-success" type="submit">Rodyti</button>
 
                 </form>
-                <form action="{{ route('krepselis.pridetik') }}" method = "post">
+                <form action="{{ route('krepselis.p') }}" method = "post">
                     @csrf 
                     <input type="hidden" name="prekes_kaina" class="form-control" value="{{ $preke->preke_kaina }}">
                     <input type="hidden" name="preke_id" class="form-control" value="{{ $preke->id }}">

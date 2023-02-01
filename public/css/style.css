@@ -347,6 +347,14 @@ border-radius: 15px;
 .textarea-susisiekite {
     width: 100%;
 }
+.krepselis-just{
+    display: flex;
+    justify-content: space-between;
+}
+.apmoketi-bottom{
+    display: flex;
+    justify-content: right;
+}
 }
 .bg-manozalia{
     background-color: rgb(226, 228, 146);
@@ -590,6 +598,15 @@ border-radius: 15px;
        
     }
     
+    .krepselis-just{
+        display: flex;
+        justify-content: space-between;
+    }
+    .apmoketi-bottom{
+        margin: 1rem;
+        display: flex;
+        justify-content: center;
+    }
     
 
     .basket-table {
