@@ -1,4 +1,3 @@
-<a href="/login" class = "indikatorius1 indikatorius-platus"><h6>Sveikas prisijungęs {{'Svečias'}}</h6></a> <a href="{{ route('prekes.ikelimas') }}">Ikelti preke</a>
 @extends('layouts.app')
 
 @section('content')

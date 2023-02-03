@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Zolyne Login</title>
+    <title>Zolyne</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -75,6 +75,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('vartotojai.vartotojai') }}">Vartotojas</a>
+                                    <a class="dropdown-item" href="{{ route('vartotojai.edit') }}">Atnaujinti duomenis</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -87,9 +89,6 @@
                                 </div>
                             </li>
                         @endguest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/vartotojas">Vartotojas</a>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/susisiekite">Susisiekite</a>
                                 </li>

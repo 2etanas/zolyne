@@ -54,7 +54,11 @@ Route::get('/klientai', function () {
 
 
 Route::get('/vartotojas', [VartotojaiController::class, 'index'])->name('vartotojai.vartotojai');
+Route::get('/vartotojas/sukurti', [VartotojaiController::class, 'create'])->name('vartotojai.papildyti');
+Route::post('/vartotojas/atnaujinti', [VartotojaiController::class, 'store'])->name('vartotojai.atnaujinti');
+Route::get('/vartotojas/pakeisti', [VartotojaiController::class, 'edit'])->name('vartotojai.edit');
 
+Route::post('/vartotojas/update', [VartotojaiController::class, 'update'])->name('vartotojai.update');
 
 
 Route::get('/login/create', [ClientController::class, 'create']);
