@@ -29,7 +29,7 @@
                         <td scope="row">{{$loop->iteration }} , {{$preke->krepselis_id}}
                             <input type="hidden" value ="{{$preke->krepselis_id}}">
                         </td> 
-                        <td scope="row">{{$preke->krepselis_id}}</td>
+                        <td scope="row">{{$preke->preke_id}}</td>
 
                         <td scope="row">{{$preke->preke_pavadinimas}}</td>
                         <td scope="row" class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai' . '/' . $preke->preke_ikelk_id . '/' . $preke->preke_foto1) }}" alt="prekesphoto" width="60px" height="60px" ></td>

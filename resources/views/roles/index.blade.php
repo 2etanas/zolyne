@@ -3,9 +3,9 @@
     @section('content')
     <div class="login-container left-container">
             <div class="susisiekite">
-<h1>Permissions vaizdas gal</h1>
-    @can('permission-create')
-    <a href="{{route('roles.create')}}" class="btn btn-primary">Sukurti permiss</a>
+<h1>Rolių vaizdas</h1>
+    @can('role-create')
+    <a href="{{route('roles.create')}}" class="btn btn-primary">Sukurti Rolę</a>
     @endcan
 <table class="table table-striped">
     <tr>

@@ -31,6 +31,8 @@ class PermissionSeeder extends Seeder
             'permission-edit',
             'permission-delete',
             'permission-show',
+            'ikelti-preke',
+            'redaguoti-preke'
 
 
         ];

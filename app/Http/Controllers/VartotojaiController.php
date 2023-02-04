@@ -26,11 +26,14 @@ class VartotojaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // In addition to retrieving all of the records matching a given query,
+    //  you may also retrieve single records using the find, first, or firstWhere methods.
+    //  Instead of returning a collection of models, these methods return a single model instance:
     public function index()
     {
         
         $kliento_id= Auth::user()->id;
-         
+        $kliento_vardas= Auth::user()->name;
         $vartotojai = DB::table('vartotojais')
         ->leftJoin('users', 'vartotojais.user_id', '=', 'users.id')
         ->where('user_id', '=', "$kliento_id")
@@ -45,7 +48,7 @@ class VartotojaiController extends Controller
             
             $vartotojas = new vartotojai();
             $vartotojas->user_id = '';
-            $vartotojas->vardas = '';
+            $vartotojas->vardas = $kliento_vardas;
             $vartotojas->pavarde = '';
             $vartotojas->gatve = '';
             $vartotojas->namo_nr = '';
@@ -70,16 +73,17 @@ class VartotojaiController extends Controller
     public function create()
     {
         $kliento_id= Auth::user()->id;
+        $kliento_vardas = Auth::user()->name;
          
         $vartotojai = vartotojai::all()
         ->where('user_id', '=', "$kliento_id");
         if (isset($vartotojai[0]) && $vartotojai[0]->user_id == Auth::user()->id){
             $vartotojas = $vartotojai[0];
-            return redirect()->route('vartotojai.edit', ['vartotojai' => $vartotojai,'vartotojas'=> $vartotojas]);
+            return redirect()->route('vartotojai.edit', ['vartotojai' => $vartotojai,'vartotojas'=> $vartotojas, 'kliento_vardas' => $kliento_vardas]);
         }else{
         $vartotojas = new vartotojai();
         $vartotojas->user_id = '';
-        $vartotojas->vardas = '';
+        $vartotojas->vardas = $kliento_vardas;
         $vartotojas->pavarde = '';
         $vartotojas->gatve = '';
         $vartotojas->namo_nr = '';
@@ -88,7 +92,7 @@ class VartotojaiController extends Controller
         $vartotojas->pasto_kodas = '';
         $vartotojas->tel_numeris = '';
         $vartotojas->komentaras = '';              
-        return view('vartotojai/create', ['vartotojai' => $vartotojai,'vartotojas'=> $vartotojas]);
+        return view('vartotojai/create', ['vartotojai' => $vartotojai,'vartotojas'=> $vartotojas, 'kliento_vardas' => $kliento_vardas]);
         }
     }
 
@@ -101,8 +105,8 @@ class VartotojaiController extends Controller
     public function store(StorevartotojaiRequest $request)
     {
 
-        $kliento_id= Auth::user()->id;
-         $vardas_users = Auth::user()->name;
+        $kliento_id = Auth::user()->id;
+        $kliento_vardas = Auth::user()->name;
         $vartotojai = vartotojai::all()
         ->where('user_id', '=', "$kliento_id");
         
@@ -110,7 +114,7 @@ class VartotojaiController extends Controller
         if (isset($vartotojai[0]) && $vartotojai[0]->user_id == Auth::user()->id){
             $vartotojas = $vartotojai[0];
             $vartotojas->user_id = $kliento_id;
-            $vartotojas->vardas = $vardas_users;
+            $vartotojas->vardas = $request->upVardas;
             $vartotojas->pavarde = $request->upPavarde;
             $vartotojas->gatve = $request->upGatve;
             $vartotojas->namo_nr = $request->upNamoNumeris;
@@ -179,7 +183,8 @@ class VartotojaiController extends Controller
     public function update(Request $request, vartotojai $vartotojai)
     {
         $kliento_id= Auth::user()->id;
-         
+        $kliento_vardas = Auth::user()->name;
+        $klientas = Auth::find($kliento_id);
         $vartotojai = vartotojai::All();
             $vartotojas = $vartotojai[0];
             
@@ -193,8 +198,11 @@ class VartotojaiController extends Controller
             $vartotojas->salis = $request->upSalis;
             $vartotojas->pasto_kodas = $request->upPastoKodas;
             $vartotojas->tel_numeris = $request->upTelNr;
-            $vartotojas->komentaras = ($request->upKomentaras ==null ? "NT": $request->upKomentaras);              
+            $vartotojas->komentaras = ($request->upKomentaras ==null ? "NT": $request->upKomentaras);
+
             $vartotojas->save();
+            $klientas->name = $vartotojas->vardas;
+            $klientas->save();
             return redirect('/vartotojas');
     
     }

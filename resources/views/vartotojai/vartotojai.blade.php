@@ -5,35 +5,37 @@
 @section('content')
 
 <div class="left-container basket-container morzesBlock">
-<a href="/vartotojas/sukurti">papildyti</a>
  <div class ="vartotojo-duomenys-vaizdas">
  <table >
  <tr>
-    <th>Vartojo duomenys:</th>
-    <th></th>
-    <th> </th>
-    <th></th>
+    <th><h3>Vartojo duomenys:</h3></th>
  </tr> 
  <tr>
-    <td>Vardas Pavardė</td>
+    <th>Vardas Pavardė</th>
     <td>{{ $vartotojas->vardas }} {{ $vartotojas->pavarde }}</td>
  </tr> 
  <tr>
-    <td>Adresas</td>
+    <th>Adresas</th>
     <td>{{ $vartotojas->gatve }} {{ $vartotojas->namo_nr }} {{ ($vartotojas->buto_nr == 0 ? "" : $vartotojas->buto_nr) }}</td>
  </tr> 
  <tr>
-    <td>Miestas</td>
+    <th>Miestas</th>
     <td>{{ $vartotojas->miestas }} {{ $vartotojas->namo_nr }} {{ ($vartotojas->buto_nr == 0 ? "" : $vartotojas->buto_nr) }}</td>
  </tr> 
  <tr>
-    <td>Šalis</td>
+    <th>Šalis</th>
     <td>{{ $vartotojas->salis }} {{ $vartotojas->namo_nr }} {{ ($vartotojas->buto_nr == 0 ? "" : $vartotojas->buto_nr) }}</td>
+ </tr> 
+ <tr>
+    <th>Komentaras</th>
+    <td>{{ $vartotojas->komentaras }}</td>
  </tr> 
  </table>
 
  </div>
-<div>{{ $vartotojas->vardas }}</div>
+<div class = "container">
+<a href="/vartotojas/sukurti" class="btn btn-danger">Papildyti</a>
+</div>
 
 
 
