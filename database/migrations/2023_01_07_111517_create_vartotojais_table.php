@@ -18,7 +18,6 @@ class CreateVartotojaisTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('vardas')->index();
-
             $table->string('pavarde');
             $table->string('gatve');
             $table->string('namo_nr');

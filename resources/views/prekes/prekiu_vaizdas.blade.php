@@ -5,7 +5,7 @@
     <div class="susisiekite">
     <div class="prekiu-containter">
             @if(isset($search))
-                <h3>Prekės pagal paiešką "{{ $search }}" 
+                <h3>Prekės pagal paiešką s"{{ $search }}" 
                     <a href="{{ route('prekes.prekiu_sarasas') }}" class="btn btn-danger">Grįžti į visą sąrašą</a>
                 </h3>
             @else

@@ -53,7 +53,7 @@ $(document).ready(function(){
 
                     }
                     tbody.append(generatedHtml);
-                    tbody.append('<tr><td>Labas</td></tr>');
+                    
                 },
                 error:function(response) {
                     console.log(response); // 404 puslapis nerastas

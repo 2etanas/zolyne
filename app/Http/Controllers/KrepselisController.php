@@ -73,6 +73,7 @@ class KrepselisController extends Controller
      */
     public function store(Request $request)
     { 
+        
         $prekes = IkelkPreke::all();
         $kliento_id = 1;
         $preke_id = $request->preke_id;
@@ -168,5 +169,35 @@ class KrepselisController extends Controller
         $krepselioPreke = krepselis::find($id);
         $krepselioPreke->delete();
         return redirect()->route('krepselis');
+    }
+
+    public function payBasket(Request $request, krepselis $krepselis)
+    {
+        $kliento_id= Auth::user()->id;
+
+        if (Auth::user()) {   // Check is user logged in
+            $kliento_id= Auth::user()->id;
+         
+            $userBasket = DB::table('krepselis')
+            ->select(DB::raw('krepselis.id as krepselis_id, vartotojas_id, krepselis.preke_id, preke_vienetai, ar_apmoketa, ikelk_prekes.id as preke_ikelk_id, ikelk_prekes.preke_pavadinimas, preke_vienetai, preke_total, ikelk_prekes.preke_aprasymas, ikelk_prekes.preke_kaina as tikra_preke_kaina, ikelk_prekes.preke_foto1, ikelk_prekes.preke_foto2, ikelk_prekes.preke_foto3, ikelk_prekes.preke_foto4'))
+            ->leftJoin('ikelk_prekes', 'krepselis.preke_id', '=', 'ikelk_prekes.id')
+            ->where('vartotojas_id', '=', "$kliento_id")
+            ->where('ar_apmoketa', '=', '2')
+            ->get();
+
+            $grandTotal = DB::table('krepselis')
+            ->where('vartotojas_id', '=', "$kliento_id")
+            ->where('ar_apmoketa', '=', '2')
+            ->sum('preke_total');
+        
+            
+
+        
+
+
+
+        return view('apmokejimas', ['krepselis'=>$userBasket, 'kliento_id' =>$kliento_id, 'grand_total' => $grandTotal]);
+        }
+
     }
 }

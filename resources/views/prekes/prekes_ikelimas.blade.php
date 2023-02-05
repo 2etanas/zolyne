@@ -5,12 +5,12 @@
             <div class="susisiekite">
             <form action="/prekes/ikelimas" method ="POST" class="login-form" name="ikelkPreke" id="ikelkPreke" enctype = "multipart/form-data">
             @csrf    
-            <h1>Ikelk naują prekę</h1>
-            <h3><a href="/prekes/sarasas">Esamos prekės</a></h3>
+            <h1>Įkelk naują prekę</h1>
+            <h3><a href="/prekes/sarasas" class = "btn btn-info active" style="width:100%">Esamos prekės</a></h3>
                 <br>
                 <div class="susisiekite-forma">
                 <label for="name">Prekės ID</label>
-                <input type="text" placeholder="Prekės ID" id="idprekes" name = "idprekes">
+                <input type="text" placeholder="Prekės ID (matomas klientui)" id="idprekes" name = "idprekes">
                 <br><br>
                 <label for="name">Prekės pavadinimas</label>
                 <input type="text" placeholder="Prekės pavadinimas" id="vardasPrekes" name = "vardasPrekes">
@@ -41,7 +41,7 @@
                 <p><img id="output4" width="200"/></p>
                 <br><br>
                 
-                <button type="submit" name="Upload" value="prideti">Pridėti produktą!</button>
+                <button class="btn btn-success" type="submit" name="Upload" value="prideti">Pridėti produktą!</button>
                 </div>
 
             </form>

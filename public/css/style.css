@@ -1,6 +1,7 @@
 @media only screen and (max-width: 600px) {
 body{
-    background-color: rgb(237, 200, 237);
+    background-color: lightblue;
+
     font-family: Verdana, Geneva, Tahoma, sans-serif ;
     
 }
@@ -165,13 +166,16 @@ nav {
     padding: 2rem;
 }
 .masterContainer .login-container {
-    background-color: lightsalmon;
+    background-color: rgba(166, 248, 182, 0.775);
+
     /* margin-right: 2.5%; */
     border-radius: 15px;
 
 }
 .masterContainer .login-form {
-    background-color: lightskyblue;
+    background-color: rgba(166, 248, 182, 0.775);
+
+
     margin: 2.5%;
     /* margin-left: 2.5%; */
 
@@ -249,7 +253,7 @@ border-radius: 15px;
     display: none;
 }
 .basket-table {
-    background-color: red;
+    background-color: rgb(149, 202, 97);
     width: 100%;
     /* height: fit-content; */
 
@@ -298,7 +302,7 @@ border-radius: 15px;
     margin: auto;
     margin-top: 5%;
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
 }
 .apmokejimo-button1 {
     background-color: gold;
@@ -527,15 +531,17 @@ border-radius: 15px;
     .left-container{
         width: 66.66%;
         padding: 2rem;
+        margin: 1rem;
     }
     .masterContainer .login-container {
-        background-color: lightsalmon;
+        background-color: rgba(166, 248, 182, 0.775);
         margin-right: 2.5%;
         border-radius: 15px;
     
     }
     .masterContainer .login-form {
-        background-color: lightskyblue;
+        background-color: rgba(150, 225, 165, 0.775);
+
         margin: 2.5%;
         /* margin-left: 2.5%; */
     
@@ -545,7 +551,7 @@ border-radius: 15px;
         padding: 2.5%;
     }
     .masterContainer .login-form h1 {
-        color: rgb(4, 134, 127);
+        color: rgb(19, 64, 62);
         font-size: x-large;
         width: 35%;
         margin: auto;
@@ -597,7 +603,10 @@ border-radius: 15px;
 
        
     }
-    
+    .container-duomenys-apmokejimo{
+        display: flex;
+        justify-items: space-between;
+    }
     .krepselis-just{
         display: flex;
         justify-content: space-between;
@@ -605,12 +614,14 @@ border-radius: 15px;
     .apmoketi-bottom{
         margin: 1rem;
         display: flex;
-        justify-content: center;
+        align-items: normal;
+        justify-content: space-between;
     }
     
 
     .basket-table {
-        background-color: red;
+        background-color: rgb(233, 255, 208);
+        border-radius: 5px;
         /* height: fit-content; */
 
     }
@@ -675,7 +686,7 @@ border-radius: 15px;
         margin: auto;
         margin-top: 5%;
         display: flex;
-        justify-content: space-around;
+        justify-content: right;
     }
     
     /* .apmokejimo-button1 {

@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\VartotojaiController;
+use App\Http\Controllers\ApmokejimasController;
+
 
 
 
@@ -149,9 +151,14 @@ Route::prefix('roles')->group(function(){
 
 Route::prefix('krepselis')->group(function(){
     Route::get('/', [KrepselisController::class, 'index'])->name('krepselis');
-    Route::post('/prideti', [KrepselisController::class, 'create'])->name('krepselis.prideti')->middleware('auth');;
-    Route::post('/destroy/{id}', [KrepselisController::class, 'destroy'])->name('krepselis.destroy')->middleware('auth');;
-    Route::post('/update/{id}', [KrepselisController::class, 'update'])->name('krepselis.update')->middleware('auth');;
+    Route::post('/prideti', [KrepselisController::class, 'create'])->name('krepselis.prideti')->middleware('auth');
+    Route::post('/destroy/{id}', [KrepselisController::class, 'destroy'])->name('krepselis.destroy')->middleware('auth');
+    Route::post('/update/{id}', [KrepselisController::class, 'update'])->name('krepselis.update')->middleware('auth');
     
 });
-Route::post('/', [KrepselisController::class, 'store'])->name('krepselis.p')->middleware('auth');;
+Route::post('/', [KrepselisController::class, 'store'])->name('krepselis.p')->middleware('auth');
+
+
+
+Route::post('krepselis/apmokejimas', [ApmokejimasController::class, 'index'])->name('krepselis.apmokejimas')->middleware('auth');
+Route::post('krepselis/saskaita', [ApmokejimasController::class, 'store'])->name('apmokejimas.saskaita')->middleware('auth');
