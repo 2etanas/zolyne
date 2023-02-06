@@ -117,6 +117,7 @@ class ApmokejimasController extends Controller
         $apmokejimas->pristatymo_tipas_saskaitai = $request->pristatymas;
         $apmokejimas->galutine_suma = $visoMoketi;
         $apmokejimas->pirkejo_vardas = $request->v_vardas;
+        $apmokejimas->pirkejo_id = $kliento_id;
 
         $apmokejimas->save();
         $nrs++;
@@ -132,7 +133,16 @@ class ApmokejimasController extends Controller
      */
     public function show(apmokejimas $apmokejimas)
     {
-        //
+        $kliento_id= Auth::user()->id;
+        // $visos_saskaitos = apmokejimas::select(DB::raw('DISTINCT(saskaitos_numeris)'))->where(DB::raw("pirkejo_id = $kliento_id"))->get();
+        
+        $visos_saskaitos = apmokejimas::distinct('saskaitos_numeris')->get(['saskaitos_numeris']);
+        foreach($visos_saskaitos as $saskaitele):
+            $saskNumeris[] =$saskaitele->saskaitos_numeris;
+
+        endforeach;
+        $saskaita = apmokejimas::all();
+        return view('saskaita', ['saskaita' => $saskaita, 'visos_saskaitos' => $visos_saskaitos, 'saskNumeris' => $saskNumeris]);
     }
 
     /**

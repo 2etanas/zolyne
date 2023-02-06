@@ -28,6 +28,7 @@ class CreateApmokejimasTable extends Migration
             $table->string('pristatymo_tipas_saskaitai');
             $table->string('galutine_suma');
             $table->string('pirkejo_vardas');
+            $table->string('pirkejo_id');
             $table->timestamps();
         });
     }

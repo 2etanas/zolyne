@@ -14,6 +14,10 @@ use App\Http\Requests\StorekrepselisRequest;
 use App\Http\Requests\UpdatekrepselisRequest;
 use App\Http\Controllers\IkelkPrekeController;
 use App\Models\IkelkPreke;
+use App\Models\Apmokejimas;
+
+use App\Http\Controllers\ApmokejimasController;
+
 
 
 class KrepselisController extends Controller
@@ -203,13 +207,13 @@ class KrepselisController extends Controller
 
     public function apmoketa()
     {
+        $apmokejimas = apmokejimas::all();
         $kliento_id= Auth::user()->id;
         $apmokejimo_ivykdymas = DB::table('krepselis')->where('vartotojas_id', '=', "$kliento_id")
         ->where('ar_apmoketa', '=', '2')
-        ->update(['ar_apmoketa' => '3']);
+        ->update(['ar_apmoketa' => '1']);
         
-        dd($apmokejimo_ivykdymas);
 
-return view('saskaita', ['apmokejimas' => $apmokejimas]);
+return redirect()->route('saskaitos', ['apmokejimas' => $apmokejimas]);
     }
 }

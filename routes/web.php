@@ -162,3 +162,5 @@ Route::get('/krepselio/keitimas', [KrepselisController::class, 'apmoketa'])->nam
 
 Route::post('krepselis/apmokejimas', [ApmokejimasController::class, 'index'])->name('krepselis.apmokejimas')->middleware('auth');
 Route::post('krepselis/saskaita', [ApmokejimasController::class, 'store'])->name('apmokejimas.saskaita')->middleware('auth');
+Route::get('/saskaitos', [ApmokejimasController::class, 'show'])->name('saskaitos')->middleware('auth');
+

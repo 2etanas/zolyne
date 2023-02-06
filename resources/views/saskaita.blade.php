@@ -13,9 +13,13 @@
 <div>
 
 </div>
-<h1>{{ $apmokejimas->saskaitos_numeris }}</h1>
+<h1>labas</h1>
+<select name="labsas" id="2122">
+@foreach ($saskNumeris as $numeris)
+<option value="{{ $numeris }}">{{ $numeris }}</option>
 
 
-
+@endforeach
+</select>
 </body>
 </html>
