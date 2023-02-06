@@ -28,10 +28,10 @@
                     @foreach ($krepselis as $preke)
                     <tr>
                         <td scope="row">{{ $loop->iteration }}
-                            <input type="hidden" name="krepselio_id_saskaitai[]" value ="{{$preke->krepselis_id}}">
+                            <input type="hidden" name="krepselio_id_saskaitai[]" value ="{{ $preke->krepselis_id }}">
                         </td> 
                         <td scope="row">{{$preke->preke_id}}</td>
-                        <input type="hidden"  name="prekes_id_saskaitai[]" value ="{{$preke->preke_id}}">
+                        <input type="hidden"  name="prekes_id_saskaitai[]" value ="{{ $preke->preke_id }}">
                         <td scope="row">{{$preke->preke_pavadinimas}}</td>
                         <input type="hidden"  name="prekes_pavadinimas_saskaitai[]" value ="{{$preke->preke_pavadinimas}}">
 
@@ -40,7 +40,7 @@
                 <input type="hidden"  name="prekes_kaina_saskaitai[]" value ="{{$preke->tikra_preke_kaina}}">
 
                         <td scope="row">{{$preke->preke_vienetai}}</td>
-                <input type="hidden"  name="prekes_vieneta_saskaitai[]" value ="{{$preke->preke_vienetai}}">
+                <input type="hidden"  name="prekes_vienetai_1saskaitai[]" value ="{{ $preke->preke_vienetai }}">
                         
                         <td scope="row">{{$preke->preke_total}}</td>
                 <input type="hidden"  name="preke_total_saskaitai[]" value ="{{$preke->preke_total}}">
@@ -48,7 +48,9 @@
                     </tr>
                   @endforeach
                     </table>
-                    <div class="apmoketi-bottom"> <h2>Viso krepšelio vertė: {{ $grand_total }} Eur</h2></div>
+                    <div class="apmoketi-bottom"> <h2>Viso krepšelio vertė: {{ $grand_total }} Eur</h2>
+                    <input type="hidden"  name="grandtotal_total_saskaitai" value ="{{ $grand_total }}">
+                </div>
                 </div>
                 
                 <div class="pristatymo-container" style="padding:1rem">
@@ -94,6 +96,7 @@
                             <tr>
                                 <th>Vardas Pavardė</th>
                                 <td>{{ $vartotojas->vardas }} {{ $vartotojas->pavarde }}</td>
+                                <input type="hidden" name="v_vardas" value=" {{ $vartotojas->vardas }} ">
                             </tr> 
                             <tr>
                                 <th>Adresas</th>

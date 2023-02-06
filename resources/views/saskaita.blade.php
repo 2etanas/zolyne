@@ -13,7 +13,7 @@
 <div>
 
 </div>
-<h1>{{ $apmokejimas->krepselio_id_saskaitai }}</h1>
+<h1>{{ $apmokejimas->saskaitos_numeris }}</h1>
 
 
 

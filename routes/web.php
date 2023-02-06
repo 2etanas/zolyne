@@ -157,7 +157,7 @@ Route::prefix('krepselis')->group(function(){
     
 });
 Route::post('/', [KrepselisController::class, 'store'])->name('krepselis.p')->middleware('auth');
-
+Route::get('/krepselio/keitimas', [KrepselisController::class, 'apmoketa'])->name('krepselio.keitimas')->middleware('auth');
 
 
 Route::post('krepselis/apmokejimas', [ApmokejimasController::class, 'index'])->name('krepselis.apmokejimas')->middleware('auth');

@@ -200,4 +200,16 @@ class KrepselisController extends Controller
         }
 
     }
+
+    public function apmoketa()
+    {
+        $kliento_id= Auth::user()->id;
+        $apmokejimo_ivykdymas = DB::table('krepselis')->where('vartotojas_id', '=', "$kliento_id")
+        ->where('ar_apmoketa', '=', '2')
+        ->update(['ar_apmoketa' => '3']);
+        
+        dd($apmokejimo_ivykdymas);
+
+return view('saskaita', ['apmokejimas' => $apmokejimas]);
+    }
 }
