@@ -20,11 +20,11 @@
  </tr> 
  <tr>
     <th>Miestas</th>
-    <td>{{ $vartotojas->miestas }} {{ $vartotojas->namo_nr }} {{ ($vartotojas->buto_nr == 0 ? "" : $vartotojas->buto_nr) }}</td>
+    <td>{{ $vartotojas->miestas }}</td>
  </tr> 
  <tr>
     <th>Šalis</th>
-    <td>{{ $vartotojas->salis }} {{ $vartotojas->namo_nr }} {{ ($vartotojas->buto_nr == 0 ? "" : $vartotojas->buto_nr) }}</td>
+    <td>{{ $vartotojas->salis }}</td>
  </tr> 
  <tr>
     <th>Komentaras</th>

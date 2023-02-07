@@ -5,13 +5,16 @@
 
 
 <div class="login-container left-container">
-        
+    
 <div class="prekiuContainer">
 
 @foreach ($ikelk_prekes as $preke)
+            
             <div class="preke" id="preke{{ $preke->id }}" style="max-height:600px;overflow:auto">
-                <img src="{{ asset('storage/images/produktai' . '/' . $preke->id . '/' . $preke->preke_foto1) }}" alt="prekesphoto" style="max-height:400px;width:205px;clip-path:inherit;">
-                <div>
+                <div class = "crop">
+            <img  src="{{ asset('storage/images/produktai' . '/' . $preke->id . '/' . $preke->preke_foto1) }}" alt="prekesphoto" style="max-height:400px;width:205px;clip-path:inherit;">
+              </div>
+            <div>
                 
                 <div class="prekesPavadinimas prekesAprasymas" name="prekeNRX">
                 

@@ -102,6 +102,8 @@ Route::get('/prekes/delete/', [IkelkPrekeController::class, 'destroy']);
 
 Route::get('/prekes/sarasas/search', [IkelkPrekeController::class, 'search'])->name('prekes.sarasas.search');
 Route::get('/prekes/sarasas/searchAjax', [IkelkPrekeController::class, 'searchAjax'])->name('prekes.sarasas.searchAjax');
+Route::get('/searchAjax', [IkelkPrekeController::class, 'searchAjax1'])->name('prekes.sarasas.searchAjax1');
+
 Route::get('/prekes/sarasas/vaizdas', [IkelkPrekeController::class, 'display'])->name('prekes.sarasas.display');
 Route::get('/prekes/sarasas/prekeDelete', [IkelkPrekeController::class, 'destroy'])->name('prekes.sarasas.prekeDelete');
 Route::get('/prekes/sarasas/prekeShowEdit', [IkelkPrekeController::class, 'show'])->name('prekes.sarasas.prekeShowEdit');

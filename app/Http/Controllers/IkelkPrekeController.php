@@ -219,6 +219,18 @@ class IkelkPrekeController extends Controller
         return response()->json($prekes);
 
 }
+public function searchAjax1(){
+    //reikia kad grazintu JSON i JS 
+    //reikia sutvarkyt ROUTE web'e
+    $search = request()->query('search1');
+
+    // $prekes = IkelkPreke::all();
+    $prekes = IkelkPreke::where('preke_pavadinimas', 'LIKE', "%$search%")
+    ->orWhere('preke_aprasymas', 'LIKE', "%$search%")            
+    ->get();
+    return response()->json($prekes);
+
+}
 public function display(){
 
     $display = request()->query('display');
