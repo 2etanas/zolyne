@@ -18,6 +18,8 @@ use App\Http\Requests\StorekrepselisRequest;
 use App\Http\Requests\UpdatekrepselisRequest;
 use App\Http\Controllers\IkelkPrekeController;
 use App\Models\IkelkPreke;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class ApmokejimasController extends Controller
 {
     /**
@@ -142,8 +144,41 @@ class ApmokejimasController extends Controller
 
         endforeach;
         $saskaita = apmokejimas::all();
-        return view('saskaita', ['saskaita' => $saskaita, 'visos_saskaitos' => $visos_saskaitos, 'saskNumeris' => $saskNumeris]);
+
+        $vartotojas = DB::table('vartotojais')
+        ->where('id', '=', "$kliento_id")
+        ->get();
+        $vartotojas1 = $vartotojas[0];
+        $emailas = Auth::user('email');
+        $paskutineSaskNr = DB::table('apmokejimas')->where('pirkejo_id', '=', "$kliento_id")->latest()->first('saskaitos_numeris');
+// dd($paskutineSaskNr->saskaitos_numeris);
+        $paskutineSask = DB::table('apmokejimas')->where('saskaitos_numeris', '=', "$paskutineSaskNr->saskaitos_numeris")->get();
+        
+        return view('saskaita', ['vartotojas1' => $vartotojas1, 'paskutineSaskNr' => $paskutineSaskNr, 'visos_saskaitos' => $visos_saskaitos, 'saskNumeris' => $saskNumeris, 'emailas'=> $emailas, 'paskutineSask' => $paskutineSask]);
     }
+    // public function show1(apmokejimas $apmokejimas)
+    // {
+    //     $kliento_id= Auth::user()->id;
+    //     // $visos_saskaitos = apmokejimas::select(DB::raw('DISTINCT(saskaitos_numeris)'))->where(DB::raw("pirkejo_id = $kliento_id"))->get();
+        
+    //     $visos_saskaitos = apmokejimas::distinct('saskaitos_numeris')->get(['saskaitos_numeris']);
+    //     foreach($visos_saskaitos as $saskaitele):
+    //         $saskNumeris[] =$saskaitele->saskaitos_numeris;
+
+    //     endforeach;
+    //     $saskaita = apmokejimas::all();
+
+    //     $vartotojas = DB::table('vartotojais')
+    //     ->where('id', '=', "$kliento_id")
+    //     ->get();
+    //     $vartotojas1 = $vartotojas[0];
+    //     $emailas = Auth::user('email');
+    //     $tyras = (isset($request->selektorius) ? $request->selektorius : "1") ; 
+    //     // $pagalSask = apmokejimas::all()->where('saskaitos_numeris', '=', "$tyras")->get();
+    //     dd($tyras);
+    //     return view('saskaita', ['vartotojas1' => $vartotojas1, 'saskaita' => $saskaita, 'visos_saskaitos' => $visos_saskaitos, 'saskNumeris' => $saskNumeris, 'emailas'=> $emailas]);
+
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -178,4 +213,37 @@ class ApmokejimasController extends Controller
     {
         //
     }
+
+    public function createPDF () {
+        // Retrieve all products from the db
+        $kliento_id= Auth::user()->id;
+        // $visos_saskaitos = apmokejimas::select(DB::raw('DISTINCT(saskaitos_numeris)'))->where(DB::raw("pirkejo_id = $kliento_id"))->get();
+        
+        $visos_saskaitos = apmokejimas::distinct('saskaitos_numeris')->get(['saskaitos_numeris']);
+        foreach($visos_saskaitos as $saskaitele):
+            $saskNumeris[] =$saskaitele->saskaitos_numeris;
+
+        endforeach;
+        $saskaita = apmokejimas::all();
+
+        $vartotojas = DB::table('vartotojais')
+        ->where('id', '=', "$kliento_id")
+        ->get();
+        $vartotojas1 = $vartotojas[0];
+        $emailas = Auth::user('email');
+        $paskutineSaskNr = DB::table('apmokejimas')->where('pirkejo_id', '=', "$kliento_id")->latest()->first('saskaitos_numeris');
+
+        $paskutineSask = DB::table('apmokejimas')->where('saskaitos_numeris', '=', "$paskutineSaskNr->saskaitos_numeris")->get();
+        
+        $data = array('vartotojas1' => $vartotojas1, 'paskutineSaskNr' => $paskutineSaskNr, 'visos_saskaitos' => $visos_saskaitos, 'saskNumeris' => $saskNumeris, 'emailas'=> $emailas, 'paskutineSask' => $paskutineSask);
+$pdf = Pdf::loadView('saskaita', $data);
+return $pdf->download('invoice.pdf');
+    }
+    // public function createPDF () {
+        
+    //     $pdf = Pdf::loadView('saskaita', $data );
+    //     return $pdf->download('invoice.pdf');
+    
+    
+    // }
 }

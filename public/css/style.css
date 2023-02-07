@@ -688,6 +688,21 @@ border-radius: 15px;
         display: flex;
         justify-content: right;
     }
+
+    .rekvizitai {
+        color: red;
+        display: flex;
+        justify-content: space-between ;
+
+    }
+    .rekvizitas{
+        width: 40%;
+    }
+
+    .iDesne {
+        display: flex;
+        justify-content: right;
+    }
     
     /* .apmokejimo-button1 {
         background-color: gold;
