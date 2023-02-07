@@ -11,13 +11,22 @@
 </head>
 <body style="background:none;">
     
-
-<h1>Pirkimo sąskaita Nr. {{ $paskutineSaskNr->saskaitos_numeris}} </h1>
+<br>
+<h1 style="width:50%;margin:auto;">Pirkimo sąskaita Nr. {{ $paskutineSaskNr->saskaitos_numeris}} </h1>
+<br>
 <div class = "rekvizitai">
         <div class = "rekvizitas">
         <h1>Pardavėjo rekvizitai</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, ut consectetur. Sapiente, ducimus impedit aliquid quasi dolore expedita repellat qui at eligendi eveniet quibusdam nisi velit facilis reprehenderit obcaecati aut!</p>
+        <label for="">Pardaves Pardavejauskas</label><br>
+        <label for="">Pilies g 1 1</label><br>
+        <label for="">Pilaite</label><br>
+        <label for="">Lietuva</label><br>
+        <label for="">Sask. num.: LT1478523698741258</label><br>
+        <label for="">Tel. nr.: 478547885</label><br>
+        <label for="">El. Pastas: test@test.lt</label>
+
         </div>
+        
         <div class = "rekvizitas">
         <h1>Pirkėjo rekvizitai</h1>
         <label for="namesurname">{{ $vartotojas1->vardas.' '.$vartotojas1->pavarde }}</label>
@@ -37,6 +46,7 @@
         <label for="">El. paštas: {{ $emailas->email }}</label><br>
         </div>
 </div>
+<br>
 <h1>Krepšelis</h1>
 
 <div style="width:80%;">
