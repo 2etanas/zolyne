@@ -184,7 +184,8 @@ class VartotojaiController extends Controller
     {
         $kliento_id= Auth::user()->id;
         $kliento_vardas = Auth::user()->name;
-        $klientas = Auth::find($kliento_id);
+        // $klientas = Auth::find($kliento_id);
+        $klientas = Auth::user();
         $vartotojai = vartotojai::All();
             $vartotojas = $vartotojai[0];
             
