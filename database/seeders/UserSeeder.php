@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $user = User:: create([
             'name' => 'Povilas',
             'email' => 'povilas.b5@gmail.com',
-            'password' => Hash::make('testtest')
+            'password' => Hash::make('testtest'),
         ]);
 
         $role = Role::find(1);

@@ -697,13 +697,14 @@ border-radius: 15px;
     }
     .rekvizitas{
         width: 40%;
+
     }
+    
 
     .iDesne {
         display: flex;
         justify-content: right;
     }
-    
     /* .apmokejimo-button1 {
         background-color: gold;
         margin: 2rem;

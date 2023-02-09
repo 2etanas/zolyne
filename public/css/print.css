@@ -1,0 +1,24 @@
+.rekvizitai {
+    background-color: lightblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex !important;
+    justify-content: space-between ;
+}
+.mygtukas-saskaita {
+    display: none;
+}
+html {
+background-color: #00539f;
+}
+html:after {
+content: "\ All Rights Reserved. (c) 2014 - 2016 ";
+color: #999 !important;
+font-size: 1em;
+padding-top: 30px;
+}
+.iDesne {
+    display: flex !important;
+    justify-content: right;
+}
+
+  

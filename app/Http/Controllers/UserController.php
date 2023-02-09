@@ -62,7 +62,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $roles= Role::all();
+        return view('users.edit', ['user' => $user, 'roles' => $roles, 'id' => $id]);
     }
 
     /**
@@ -73,7 +75,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $roles= Role::all();
+        return view('users.edit', ['user' => $user, 'roles' => $roles, 'id' => $id]);
     }
 
     /**
@@ -85,7 +89,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $role = Role::find($id);// cia random numeris:)
+        $user->role_id = $request->role;
+        $user->save();
     }
 
     /**

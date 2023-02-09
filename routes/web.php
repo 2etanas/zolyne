@@ -167,4 +167,4 @@ Route::post('krepselis/saskaita', [ApmokejimasController::class, 'store'])->name
 Route::get('/saskaitos', [ApmokejimasController::class, 'show'])->name('saskaitos')->middleware('auth');
 Route::post('/saskaitos1', [ApmokejimasController::class, 'show1'])->name('saskaitos1')->middleware('auth');
 
-Route::get('/saskaitos/pdf', [ApmokejimasController::class, 'createPDF'])->name('saskaitos.pdf');
+Route::get('/saskaitos/pdf', [ApmokejimasController::class, 'createPDF'])->name('saskaitos.pdf')->middleware('auth');

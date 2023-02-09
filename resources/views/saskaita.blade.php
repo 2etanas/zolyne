@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" media="print" href="{{ asset('css/print.css') }}" />
+
 
     <title>Pirkimo sąskaita</title>
 </head>
@@ -15,7 +17,7 @@
 <h1 style="width:50%;margin:auto;">Pirkimo sąskaita Nr. {{ $paskutineSaskNr->saskaitos_numeris}} </h1>
 <br>
 <div class = "rekvizitai">
-        <div class = "rekvizitas">
+        <span class = "rekvizitas">
         <h1>Pardavėjo rekvizitai</h1>
         <label for="">Pardaves Pardavejauskas</label><br>
         <label for="">Pilies g 1 1</label><br>
@@ -25,9 +27,9 @@
         <label for="">Tel. nr.: 478547885</label><br>
         <label for="">El. Pastas: test@test.lt</label>
 
-        </div>
+        </span>
         
-        <div class = "rekvizitas">
+        <span class = "rekvizitas">
         <h1>Pirkėjo rekvizitai</h1>
         <label for="namesurname">{{ $vartotojas1->vardas.' '.$vartotojas1->pavarde }}</label>
         <br>
@@ -44,9 +46,10 @@
         <label for="">Pašto kodas: {{ $vartotojas1->pasto_kodas }}</label><br>
         <label for="">Tel. nr.: {{ $vartotojas1->tel_numeris }}</label><br>
         <label for="">El. paštas: {{ $emailas->email }}</label><br>
-        </div>
+        </span>
 </div>
 <br>
+<div>
 <h1>Krepšelis</h1>
 
 <div style="width:80%;">
@@ -78,11 +81,11 @@
 </table>
 <h3 class= "iDesne">Siutimo kaina: {{ $item->pristatymo_tipas_saskaitai }} Eur</h3>
 <h2 class= "iDesne">Visa pirkinio kaina: {{ $item->galutine_suma }} Eur</h2>
-
+</div>
 </div>
 <!-- neveikia pdf -->
 <!-- <a href="{{ route('saskaitos.pdf') }}">PDF</a> -->
-<a href="javascript:if(window.print)window.print()" class="btn btn-warning">Print</a>
+<a href="javascript:if(window.print)window.print()" class="btn btn-warning mygtukas-saskaita">Print</a>
 
 </body>
 </html>

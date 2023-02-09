@@ -3,9 +3,9 @@
     @section('content')
     <div class="login-container left-container">
             <div class="susisiekite">
-<h1>Registred users</h1>
+<h1>Registruoti vartotojai</h1>
     @can('permission-create')
-    <a href="{{route('users.create')}}" class="btn btn-primary">Sukurti permiss</a>
+    <a href="{{route('users.create')}}" class="btn btn-primary">Sukurti vartotoją</a>
     @endcan
 <table class="table table-striped">
     <tr>
