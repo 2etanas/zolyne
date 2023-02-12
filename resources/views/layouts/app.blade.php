@@ -47,15 +47,23 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/krepselis">Krepšelis</a>
                                 </li>
+                                @can ('ikelti-preke')
+                                    <a class="nav-link" href="/prekes/sarasas">Prekių sąrašas/pildymas</a>
+                                </li>
+                                @endcan
+
+                                @can ('user-view')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/prekes/ikelimas">Prekės</a>
+                                    <a class="nav-link" href="/permissions">Vartotojų teisės</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/permissions">Permissions</a>
+                                    <a class="nav-link" href="/roles">Vartotojų rolės</a>
                                 </li>
+                                
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/roles">Rolės</a>
+                                    <a class="nav-link" href="{{ route('users.index') }}">Vartotojai</a>
                                 </li>
+                                @endcan
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

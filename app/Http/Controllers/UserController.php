@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -15,11 +16,24 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+        $this->middleware('permission:user-view', ['only' => ['index']]); 
+        $this->middleware('permission:user-create', ['only' => ['create', 'store']]); 
+        $this->middleware('permission:user-edit', ['only' => ['update', 'edit']]); 
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]); 
+        $this->middleware('permission:user-search', ['only' => ['search']]); 
+     }
+
+
+
     public function index()
     {
 
         $users = User::where('id', '!=', auth()->user()->id)->where('id', '!=', 1)->get();
         // $user = User::skip(auth()->user()->id);
+
         return view('users.index', ['users' => $users]);
     }
 
@@ -92,9 +106,11 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $role = Role::find($id);// cia random numeris:)
-        $user->role_id = $request->role;
+
+        DB::table('model_has_roles')->where('model_id', '=', $id)->delete(); 
+        $user->assignRole([$request->role]);
         $user->save();
+        return redirect()->route('users.index');
     }
 
     /**
@@ -105,6 +121,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user  = User::find($id);
+        $user->delete();
+        return redirect()->route('users.index');
     }
 }

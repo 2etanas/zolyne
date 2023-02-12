@@ -18,6 +18,7 @@ use App\Models\IkelkPreke;
 use App\Models\vartotojai;
 use App\Http\Requests\StorevartotojaiRequest;
 use App\Http\Requests\UpdatevartotojaiRequest;
+use Illuminate\Support\Facades\Validator;
 
 class VartotojaiController extends Controller
 {
@@ -42,7 +43,6 @@ class VartotojaiController extends Controller
         if (isset($vartotojai[0]) && $vartotojai[0]->user_id == Auth::user()->id){
 
         $vartotojas = $vartotojai[0];
-
         return view('vartotojai.vartotojai', ['vartotojai' => $vartotojai, 'vartotojas'=> $vartotojas]);
         }else {
             
@@ -58,7 +58,6 @@ class VartotojaiController extends Controller
             $vartotojas->tel_numeris = '';
             $vartotojas->komentaras = '';              
             $vartotojas->alert = 1;              
-
             
              return view('/vartotojai/vartotojai', ['vartotojas'=> $vartotojas, 'vartotojai' => $vartotojai ]);
             // return redirect()->route('vartotojai.papildyti');
@@ -76,9 +75,12 @@ class VartotojaiController extends Controller
         $kliento_vardas = Auth::user()->name;
          
         $vartotojai = vartotojai::all()
-        ->where('user_id', '=', "$kliento_id");
-        if (isset($vartotojai[0]) && $vartotojai[0]->user_id == Auth::user()->id){
+        ->where('user_id', '=', "$kliento_id")->pluck('user_id');
+        // dd($vartotojai[0]);
+        if (isset($vartotojai[0]) && $vartotojai[0] == Auth::user()->id){
             $vartotojas = $vartotojai[0];
+            
+
             return redirect()->route('vartotojai.edit', ['vartotojai' => $vartotojai,'vartotojas'=> $vartotojas, 'kliento_vardas' => $kliento_vardas]);
         }else{
         $vartotojas = new vartotojai();
@@ -127,7 +129,8 @@ class VartotojaiController extends Controller
             $vartotojas->save();
             return view('vartotojai.create', ['vartotojai' => $vartotojai, 'vartotojas'=> $vartotojas]);
         }else{
-        $vartotojas = new vartotojai();
+                
+            $vartotojas = new vartotojai();
 
             $vartotojas->user_id = $kliento_id;
             $vartotojas->vardas = $request->upVardas;

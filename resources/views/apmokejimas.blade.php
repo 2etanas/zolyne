@@ -140,7 +140,7 @@
                     </div>
                 </div>
                
-                <button type="submit" name="generuoti_sask" id = "generuoti_sask">Apmokėti!</button>
+                <button type="submit" name="generuoti_sask" id = "generuoti_sask" class="btn btn-success">Apmokėti!</button>
             </form>
 
                
@@ -156,7 +156,7 @@ let grandtotal = parseInt(document.getElementById('tarpine_grand_suma').value);
 let pristatymas = parseInt(document.getElementById('pristatymas').value);
 let galutine = grandtotal + pristatymas;
 console.log(galutine);
-document.getElementById('pristatymo_kaina').innerHTML = 'Pristatymo s išlaidos: ' + pristatymas +" Eur";
+document.getElementById('pristatymo_kaina').innerHTML = 'Pristatymo išlaidos: ' + pristatymas +" Eur";
 
 document.getElementById('galutine_suma_su_pristatymu').innerHTML = 'Suma su pristatymu: ' + galutine +" Eur";
 }

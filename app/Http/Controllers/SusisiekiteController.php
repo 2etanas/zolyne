@@ -48,7 +48,7 @@ class SusisiekiteController extends Controller
         $su->replied = $replied;
 
         $su->save();
-        return "sekme?";
+        return redirect('/');
         //
     }
     // public function store(susisiekite $request)

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
 {
@@ -26,6 +28,9 @@ class RoleController extends Controller
      */
     public function index()
     {
+        // $user = User::find(); //pakeisti userio role rankiniu budu
+        // $user->assignRole(3);
+        
         $roles = Role::where('id', '!=', 1)->get();
         return view('roles.index', ['roles' => $roles]);
     }
@@ -50,6 +55,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|alpha_dash',
+
+        ]);
         $role = new Role;
         $role->name =$request->name;
         $role->save();
@@ -96,6 +105,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|alpha_dash',
+
+        ]);
         $role = Role::find($id);
         $role->name =$request->name;
         $role->save();

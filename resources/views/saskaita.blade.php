@@ -14,7 +14,7 @@
 <body style="background:none;">
     
 <br>
-<h1 style="width:50%;margin:auto;">Pirkimo sąskaita Nr. {{ $paskutineSaskNr->saskaitos_numeris}} </h1>
+<h1 style="width:50%;margin:auto;">Pirkimo sąskaita Nr. {{ $paskutineSaskNr->saskaitos_numeris }} </h1>
 <br>
 <div class = "rekvizitai">
         <span class = "rekvizitas">

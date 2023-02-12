@@ -32,8 +32,8 @@ class PermissionSeeder extends Seeder
             'permission-delete',
             'permission-show',
             'ikelti-preke',
-            'redaguoti-preke'
-
+            'redaguoti-preke',
+            'view-buy'
 
         ];
         foreach($permissions as $permission){

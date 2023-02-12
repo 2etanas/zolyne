@@ -112,12 +112,6 @@ Route::post('/prekes/sarasas/prekeEdit/{preke}', [IkelkPrekeController::class, '
 
 Route::post('/prekes/store', [PrekesController::class, 'store']);
 
-
-
-
-
-
-
 Route::post('/susisiekite/store', [SusisiekiteController::class, 'store']);
 
 Route::prefix('users')->group(function(){

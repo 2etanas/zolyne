@@ -77,6 +77,8 @@
                     <button class="btn btn-success" type="submit">Rodyti</button>
 
                     </form><br>
+                    @can('redaguoti-preke')
+
                     <form action="{{ route('prekes.sarasas.prekeShowEdit') }}" method = "get">
                     @csrf 
                     <input type="hidden" name="preke-edit" class="form-control" value="{{ $preke->id }}">
@@ -84,12 +86,14 @@
 
                     </form>
                     <br>
+                  
                     <form action="{{ route('prekes.sarasas.prekeDelete') }}" method = "get">
                     @csrf 
                     <input type="hidden" name="preke-delete" class="form-control" value="{{ $preke->id }}">
                     <button class="btn btn-danger" type="submit" >Ištrinti</button>
 
                     </form></td>
+                    @endcan
                 <td></td>
                     
 

@@ -8,8 +8,13 @@
             <div class="form-group">
                 <div  class="form-group">
 
-                <input type="text" name="name" class="form-control" placeholder="Roles vardas">
-                </div>
+                <input type="text" name="name" class="form-control" class="@error('name') is-invalid @enderror" placeholder="Roles vardas">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror     
+            </div>
                 <div class="form-group">
                     <label>Permission</label><br>
                     @foreach ($permissions as $permission)

@@ -9,8 +9,14 @@
 
                 <div class="form-group">
 
-                <input type="text" name="name" class="form-control" value ='{{$role->name}}' placeholder="Roles vardas">
-                </div>
+                <input type="text" name="name2" id="name2" class="form-control @error('name2') is-invalid @enderror" value ='{{$role->name}}' placeholder="Roles vardas">
+            
+                        @error('name2')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror    
+            </div>
                 <div class="form-group">
                     <label>Permission</label><br>
                     @foreach ($permissions as $permission)

@@ -3,9 +3,10 @@
     @section('content')
     <div class="login-container left-container">
             <div class="susisiekite">
-<h1>Permissions vaizdas gal</h1>
+@can('permission-view')
+            <h1>Visos teisės</h1>
     @can('permission-create')
-    <a href="{{route('permissions.create')}}" class="btn btn-primary">Sukurti permiss</a>
+    <a href="{{route('permissions.create')}}" class="btn btn-primary">Sukurti naują teisę</a>
     @endcan
 <table class="table table-striped">
     <tr>
@@ -37,6 +38,7 @@
 
     @endforeach
 </table>
+@endcan
 </div>
 </div>
     @endsection

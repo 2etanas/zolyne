@@ -18,7 +18,7 @@
                 </div> -->
 
                 <div class="form-group">
-                    <label>Roles</label><br>
+                    <label>Rolės</label><br>
                     <select name="role" class="form-select">
                     @foreach ($roles as $role)
                         
@@ -28,7 +28,7 @@
                         </select>
 
                 </div>
-                <button type="submit" class="btn btn-primary">Sukurti!</button>
+                <button type="submit" class="btn btn-primary">Atnaujinti!</button>
             </div>
             </form>
             </div>

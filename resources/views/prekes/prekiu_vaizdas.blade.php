@@ -4,14 +4,9 @@
     <div class="login-container left-container">
     <div class="susisiekite">
     <div class="prekiu-containter">
-            @if(isset($search))
-                <h3>Prekės pagal paiešką s"{{ $search }}" 
-                    <a href="{{ route('prekes.prekiu_sarasas') }}" class="btn btn-danger">Grįžti į visą sąrašą</a>
-                </h3>
-            @else
-                <h3>Prekių sąrašas</h3>
-            @endif
-        <div class="row">
+            
+                <h3>Prekė</h3>
+        <!-- <div class="row">
         <div class="col-md-7">
         <form action="{{ route('prekes.sarasas.search') }}" method = "get">
         @csrf 
@@ -28,7 +23,7 @@
 
         </form>
         </div>
-        </div> 
+        </div>  -->
         <?php //include "../functions/mainFunctions.php"; ?>
         <table class="table">
             <tr>
@@ -47,7 +42,7 @@
                 
                 
                 
-                <th scope="col">Pašalinti</th>
+                <th scope="col" ></th>
             </tr>
             <tbody class="prekes-lentute">
         @foreach ($ikelk_prekes as $preke)
@@ -61,16 +56,9 @@
                 <td class="student_email" >{{ $preke->preke_kaina }}</td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai' . '/' . $preke->preke_id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></td>
+                <td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></td>
                 <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></td>
-                
-                <td>
-                    
-
-                    
-                    
-                    
-
                 </td>
             </tr>
         @endforeach
@@ -86,7 +74,4 @@
     @endsection
 
 
-    <!-- <form action="  //route('/prekes/delete', $preke); }} " method="POST"> -->
-                        <!-- @csrf -->
-                        <!-- <button class="btn btn-danger" type="submit">Delete</button> -->
-                    <!-- </form>  -->
+  

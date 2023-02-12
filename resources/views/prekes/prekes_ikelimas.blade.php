@@ -10,35 +10,79 @@
                 <br>
                 <div class="susisiekite-forma">
                 <label for="name">Prekės ID</label>
-                <input type="text" placeholder="Prekės ID (matomas klientui)" id="idprekes" name = "idprekes">
+                <input class="@error('PrekesID') is-invalid @enderror" type="number" placeholder="Prekės ID (matomas klientui)" id="idprekes" name = "idprekes" required 
+                value="{{ old('idprekes') }}"
+                >
+                        @error('PrekesID')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 <br><br>
                 <label for="name">Prekės pavadinimas</label>
-                <input type="text" placeholder="Prekės pavadinimas" id="vardasPrekes" name = "vardasPrekes">
+                <input class="@error('Pavadinimas') is-invalid @enderror" type="text" placeholder="Prekės pavadinimas" id="vardasPrekes" name = "vardasPrekes" required 
+                value="{{ old('vardasPrekes') }}"
+                >
+                @error('Pavadinimas')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 <br><br>
                 <label for="name">Prekės Aprašymas</label>
-                <textarea placeholder="Prekės Aprašymas" id="aprasymasPrekes" name="aprasymasPrekes" class = "textarea-susisiekite textarea-prekes-aprasymas"> </textarea>
+                <textarea class="@error('Aprasymas') is-invalid @enderror" placeholder="Prekės Aprašymas" value="{{ old('aprasymasPrekes') }}" id="aprasymasPrekes" name="aprasymasPrekes" class = "textarea-susisiekite textarea-prekes-aprasymas" required> </textarea>
+                @error('Aprasymas')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 <br><br>
                 <label for="number">Prekės Kaina</label>
-                <input type="text" placeholder="Prekės kaina" id="kainaPrekes" name = "kainaPrekes">
+                <input class="@error('Kaina') is-invalid @enderror" type="number" placeholder="Prekės kaina"  value="{{ old('kainaPrekes') }}" id="kainaPrekes" name = "kainaPrekes" required>
                 <!-- reikia sutvarkyti ikelima su atskiru folderiu ir pavadinimu. tada perduoti linka gal -->
-                 <br><br>
+                @error('Kaina')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                <br><br>
                 <label for="name">Prekės nuotrauka 1</label>
-                <input type="file" id="preke_foto1" name = "preke_foto1" accept="image/*" onchange="loadFile(event)" style="color:green">
+                <input class="@error('Foto') is-invalid @enderror" type="file" id="preke_foto1" name = "preke_foto1" accept="image/*" onchange="loadFile(event)" style="color:green" required>
                     
                 <p><img id="output" width="200"/></p>
+                @error('Foto')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 <br><br>
                 <label for="name">Prekės nuotrauka 2</label>
-                <input type="file" id="preke_foto2" name = "preke_foto2" accept="image/*" onchange="loadFile2(event)">
+                <input class="@error('Foto') is-invalid @enderror" type="file" id="preke_foto2" name = "preke_foto2" accept="image/*" onchange="loadFile2(event)" required>
                 <p><img id="output2" width="200"/></p>
+                @error('Foto')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 <br><br>
                 <label for="name">Prekės nuotrauka 3</label>
-                <input type="file" id="preke_foto3" name = "preke_foto3" accept="image/*" onchange="loadFile3(event)">
+                <input class="@error('Foto') is-invalid @enderror" type="file" id="preke_foto3" name = "preke_foto3" accept="image/*" onchange="loadFile3(event)" required>
                 <p><img id="output3" width="200"/></p>
+                @error('Foto')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 <br><br>
             
                 <label for="name">Prekės nuotrauka 4</label>
-                <input type="file" id="preke_foto4" name = "preke_foto4" accept="image/*" onchange="loadFile4(event)">
+                <input class="@error('Foto') is-invalid @enderror" type="file" id="preke_foto4" name = "preke_foto4" accept="image/*" onchange="loadFile4(event)" required>
                 <p><img id="output4" width="200"/></p>
+                @error('Foto')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                 <br><br>
                 
                 <button class="btn btn-success" type="submit" name="Upload" value="prideti">Pridėti produktą!</button>

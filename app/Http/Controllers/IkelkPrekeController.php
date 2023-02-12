@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+
 
 class IkelkPrekeController extends Controller
 {
@@ -51,6 +53,18 @@ class IkelkPrekeController extends Controller
      */
     public function store(Request $request)
     {   
+
+        // $request->validate([
+        //     'idprekes' => 'required',
+        //     'vardasPrekes' => 'required|max:30|min:3',
+        //     'aprasymasPrekes' => 'required|max:150|min:3',
+        //     'kainaPrekes' => 'required|integer',
+        //     'file("preke_foto1")' => 'required',
+        //     'file("preke_foto2")' => 'required',
+        //     'file("preke_foto3")' => 'required',
+        //     'file("preke_foto4")' => 'required'
+
+        // ]);
         
         $preke_id = $request->idprekes;
         $preke_pavadinimas = $request->vardasPrekes;
@@ -91,7 +105,7 @@ class IkelkPrekeController extends Controller
         $temp4->storeAs("public/images/produktai/$preke->id/", $preke_foto4);
 
 
-        return redirect('prekes/ikelimas');
+        return redirect('prekes/ikelimas')->with('success', "Prekė įkelta sėkmingai!");
     }
 
     /**
@@ -237,7 +251,7 @@ public function display(){
 
     // $prekes = IkelkPreke::all();
     $prekes = IkelkPreke::where('id', '=', "$display")->get();
-    return view('prekes/prekiu_sarasas', ['ikelk_prekes' => $prekes, 'display'=>$display]);
+    return view('prekes/prekiu_vaizdas', ['ikelk_prekes' => $prekes, 'display'=>$display]);
 
 }
 }

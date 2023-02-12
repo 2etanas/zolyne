@@ -20,7 +20,7 @@
         <td>{{$user->id}}</td>
         <td>{{$user->name}}</td>
         <td>{{$user->email}}</td>
-        <td>{{$user->roles->pluck('name')[0]}}</td> <!-- atranda roles varda -->
+        <td>{{ (($user->roles->pluck('name')) !== null) ? $user->roles->pluck('name')[0] : ' '; }}</td> <!-- atranda roles varda -->
 
         <td>
             @can('user-delete')

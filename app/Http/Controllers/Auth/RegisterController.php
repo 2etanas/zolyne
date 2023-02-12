@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -69,7 +70,7 @@ class RegisterController extends Controller
         $user->email =$data['email'];
         $user->password =Hash::make($data['password']);
         $user->save();
-        $user->assignRole([2]);
+        $user->assignRole([3]);
         return $user;
     }
 }
