@@ -1,8 +1,10 @@
+
 @extends('layouts.app')
 
     @section('content')
     <div class="login-container left-container">
             <div class="susisiekite">
+            @can('role-create')               
 <h1>Rolių vaizdas</h1>
     @can('role-create')
     <a href="{{route('roles.create')}}" class="btn btn-primary">Sukurti Rolę</a>
@@ -36,6 +38,9 @@
 
     @endforeach
 </table>
+@endcan
 </div>
+
+
 </div>
     @endsection

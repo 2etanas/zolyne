@@ -1,3 +1,4 @@
+@can ('user-view')
 @extends('layouts.app')
 
     @section('content')
@@ -7,6 +8,7 @@
     @can('permission-create')
     <a href="{{route('users.create')}}" class="btn btn-primary">Sukurti vartotoją</a>
     @endcan
+    #can('permission-view')
 <table class="table table-striped">
     <tr>
         <th>ID</th>
@@ -40,6 +42,8 @@
 
     @endforeach
 </table>
+@endcan
 </div>
 </div>
     @endsection
+    @endcan

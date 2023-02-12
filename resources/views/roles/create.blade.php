@@ -3,6 +3,7 @@
     @section('content')
     <div class="login-container left-container">
             <div class="susisiekite">
+            @can ('role-edit')
             <form method="post" action="{{route('roles.store')}}">
                 @csrf 
             <div class="form-group">
@@ -27,6 +28,7 @@
                 <button type="submit" class="btn btn-primary">Sukurti!</button>
             </div>
             </form>
+            @endcan
             </div>
 </div>
 

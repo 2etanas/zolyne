@@ -44,9 +44,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/">Home</a>
                                 </li>
+                                @can ('view-buy')
                                 <li class="nav-item">
                                     <a class="nav-link" href="/krepselis">Krepšelis</a>
                                 </li>
+                                @endcan
                                 @can ('ikelti-preke')
                                     <a class="nav-link" href="/prekes/sarasas">Prekių sąrašas/pildymas</a>
                                 </li>

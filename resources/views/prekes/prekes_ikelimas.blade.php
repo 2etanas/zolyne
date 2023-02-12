@@ -3,6 +3,7 @@
             @section('content')
             <div class="login-container left-container">
             <div class="susisiekite">
+                @can ('ikelti-preke')
             <form action="/prekes/ikelimas" method ="POST" class="login-form" name="ikelkPreke" id="ikelkPreke" enctype = "multipart/form-data">
             @csrf    
             <h1>Įkelk naują prekę</h1>
@@ -89,6 +90,7 @@
                 </div>
 
             </form>
+            @endcan
             </div>
             </div>
     <script>

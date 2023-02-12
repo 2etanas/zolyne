@@ -7,6 +7,7 @@
 <div class="left-container basket-container morzesBlock">
 
  <div class ="vartotojo-duomenys-vaizdas">
+)
     <form action="{{ route('vartotojai.atnaujinti') }}" method="post" class="form-group">
     @csrf
 
@@ -47,7 +48,7 @@
     <button type="submit" class="btn btn-success">Sukurti</button>
     </form>
 
-
+    
 </div>
 </div>
  @endsection
