@@ -453,7 +453,7 @@ border-radius: 15px;
     }
     .masterContainer .infoContainer{
         color: rgb(31, 28, 22);
-        background-color: blanchedalmond;
+        background-color: rgb(233, 244, 168);
         width: auto;
         border-radius: 25px;
         padding: 1rem;
@@ -464,7 +464,7 @@ border-radius: 15px;
         
         width: 90%;
         height: fit-content;
-        background-color: rgb(200, 158, 203);
+        background-color: rgb(199, 239, 196);
         margin: 0.5rem 0.5rem 0.5rem 0.5rem;
         padding: 0.3rem;
         padding: 1rem;
@@ -583,7 +583,7 @@ border-radius: 15px;
         display: inline-block;
         margin: auto;
     
-        color: darkgreen;
+        color: rgb(164, 207, 164);
     }
     .masterContainer .prekiuContainer .susisiekite-forma label  {
         display: inline-block;

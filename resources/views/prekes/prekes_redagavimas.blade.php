@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
             @section('content')
-            @can('redaguoti-preke')
+        @can('redaguoti-preke')
             @foreach($ikelk_prekes as $preke)
             <div class="login-container left-container">
             <div class="susisiekite">
@@ -78,9 +78,11 @@
                 </div>
 
             </form>
+            @endforeach
+            @endcan
             </div>
             </div>
-       @endcan
+       
       <script>
             var loadFile = function(event) {
                 var image = document.getElementById('output');
@@ -99,5 +101,4 @@
                 image.src=URL.createObjectURL(event.target.files[0]);
                 };
       </script>
-            @endforeach
             @endsection

@@ -1,6 +1,6 @@
-@can ('user-view')
-@extends('layouts.app')
 
+@extends('layouts.app')
+@can ('user-view')
     @section('content')
     <div class="login-container left-container">
             <div class="susisiekite">
@@ -8,7 +8,7 @@
     @can('permission-create')
     <a href="{{route('users.create')}}" class="btn btn-primary">Sukurti vartotoją</a>
     @endcan
-    #can('permission-view')
+    @can('permission-view')
 <table class="table table-striped">
     <tr>
         <th>ID</th>
@@ -31,19 +31,19 @@
                 <button type="submit" class="btn btn-danger" >Ištrinti</button>
             </form>
             @endcan
-            @can('user-edit')
+            
             <a href="{{route('users.edit', $user->id)}}" class ="btn btn-secondary">Keisti</a>
-            @endcan
             <a href="{{route('users.show', $user->id)}}" class ="btn btn-success">Rodyti</a>
 
 
         </td>
     </tr>
-
     @endforeach
 </table>
 @endcan
+@endcan
+
 </div>
 </div>
     @endsection
-    @endcan
+    

@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="login-container left-container">
     
 <div class="prekiuContainer">
