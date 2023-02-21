@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            // $table->foreign('id')->references('user_id')->on('vartotojais');
             $table->string('name')->index();
             // $table->foreign('name')->references('vardas')->on('vartotojais');
 

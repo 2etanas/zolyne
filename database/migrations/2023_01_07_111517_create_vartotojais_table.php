@@ -16,7 +16,6 @@ class CreateVartotojaisTable extends Migration
         Schema::create('vartotojais', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->string('vardas')->index();
             $table->string('pavarde');
             $table->string('gatve');
