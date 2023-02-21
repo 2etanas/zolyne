@@ -54,11 +54,11 @@
                 <td class="student_name">{{ $preke->preke_pavadinimas }}</td>
                 <td class="student_surname">{{ $preke->preke_aprasymas }}</td>
                 <td class="student_email" >{{ $preke->preke_kaina }}</td>
-                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai' . '/' . $preke->preke_id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></td>
-                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></td>
+                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai' . '/' . $preke->id . '/' . $preke->preke_foto1) }}" alt="foto1"  style="max-height:200px;width:125px;"></td>
+                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto2) }}" alt="foto2" style="max-height:200px;width:125px;"></td>
                 <td>
-                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></td>
-                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->preke_id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></td>
+                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto3) }}" alt="foto3" style="max-height:200px;max-width:125px;"></td>
+                <td class="basket-nuotrauka"><img src="{{ asset('storage/images/produktai'. '/' . $preke->id . '/' . $preke->preke_foto4) }}" alt="foto4" style="max-height:200px;max-width:125px;"></td>
                 </td>
             </tr>
         @endforeach
